@@ -13,6 +13,10 @@
      text (labels, links), use this variant instead; keep plain accent
      for decorative lines and hover-only underline color. */
   --color-accent-text: #67545a;
+  /* Muted maroon, same low-saturation family as the rest of the
+     palette — used only for form validation errors, never as a brand
+     accent. 7.67:1 on --color-base. */
+  --color-error: #7a3535;
   --color-metal: #b7b1a9;
   --color-line: rgba(24, 22, 23, 0.12);
   --color-line-strong: rgba(24, 22, 23, 0.26);
@@ -30,6 +34,7 @@
   --color-dark: var(--color-dark);
   --color-accent: var(--color-accent);
   --color-accent-text: var(--color-accent-text);
+  --color-error: var(--color-error);
   --color-metal: var(--color-metal);
   --color-line: var(--color-line);
   --color-line-strong: var(--color-line-strong);

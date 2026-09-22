@@ -176,6 +176,20 @@ export default async function TreatmentDetailPage({
           >
             カウンセリングを予約する
           </Link>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <Link
+              href="/price"
+              className="text-[12.5px] tracking-wide text-ink/65 underline decoration-line underline-offset-4 hover:text-ink hover:decoration-accent"
+            >
+              料金について見る
+            </Link>
+            <Link
+              href="/first-visit"
+              className="text-[12.5px] tracking-wide text-ink/65 underline decoration-line underline-offset-4 hover:text-ink hover:decoration-accent"
+            >
+              初めての方へ
+            </Link>
+          </div>
         </div>
         <div className="mt-12">
           <ConceptMedicalInfo />

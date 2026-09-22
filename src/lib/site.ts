@@ -11,8 +11,13 @@ export const site = {
   taglineEn: "NOT MORE. MORE CONSIDERED.",
   concept: "SELECTIVE AESTHETICS",
   url: "https://enora-aesthetic.example.com",
+  // Used as the site-wide meta description, OGP, and Twitter card copy —
+  // the one place search results and social link previews show text
+  // without a page render, so "架空の" can't be left to the in-page
+  // Concept Project badge alone (brief V4 §22: don't let metadata imply
+  // a real clinic).
   description:
-    "ÉNORA AESTHETICは、施術の数ではなく「何をしないか」まで一緒に選ぶ、選択制の美容医療クリニックです。",
+    "ÉNORA AESTHETICは、Web制作ポートフォリオのために制作された架空の美容医療クリニックのConcept Projectです。施術の数ではなく「何をしないか」まで一緒に選ぶ、選択制のブランド体験を検証しています。",
   email: "concierge@enora-aesthetic.example.com",
   areaLabel: "Urban Japan — Concept Project",
   social: {

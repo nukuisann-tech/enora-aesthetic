@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { concerns } from "@/data/concerns";
 
 const visitOptions = ["初めて相談する", "以前に相談したことがある"];
@@ -24,14 +24,39 @@ const priorityOptions = [
   { value: "unsure", label: "まだ決めていない", en: "Not Sure Yet" },
 ];
 
+// A 1px underline-style field has no box to show a browser's default
+// focus ring against, so removing `outline` without a real replacement
+// would leave keyboard users with no visible focus indicator at all —
+// the border-color change alone is too subtle to rely on (WCAG 2.4.7).
+// The explicit outline below is the actual indicator; the border-color
+// change is a secondary, on-brand cue on top of it.
 const fieldClass =
-  "w-full border-0 border-b rule bg-transparent py-3 text-[15px] text-ink outline-none transition-colors placeholder:text-ink/40 focus:border-accent";
+  "w-full border-0 border-b rule bg-transparent py-3 text-[15px] text-ink transition-colors placeholder:text-ink/40 focus:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--color-ink)]";
 
 type Brief = {
   concernLabels: string[];
   avoid: string[];
   priorityLabel: string | null;
 };
+
+type FieldErrors = {
+  name?: string;
+  email?: string;
+  visitType?: string;
+};
+
+// A visible, specific message next to the field — not the browser's
+// generic native validation popup (language/locale-dependent, and
+// disconnected from the field once dismissed). Color is paired with
+// text, never used alone (WCAG 1.4.1).
+function FieldError({ id, message }: { id: string; message?: string }) {
+  if (!message) return null;
+  return (
+    <p id={id} role="alert" className="mt-1.5 text-[12px] text-[color:var(--color-error)]">
+      ⚠ {message}
+    </p>
+  );
+}
 
 function CheckboxGroup({
   name,
@@ -59,10 +84,37 @@ function CheckboxGroup({
 
 export function ConsultationForm() {
   const [brief, setBrief] = useState<Brief | null>(null);
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const visitTypeRef = useRef<HTMLSelectElement>(null);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
+    const name = (data.get("name") as string).trim();
+    const email = (data.get("email") as string).trim();
+    const visitType = data.get("visitType") as string;
+
+    const nextErrors: FieldErrors = {};
+    if (!name) nextErrors.name = "お名前を入力してください。";
+    if (!email) {
+      nextErrors.email = "メールアドレスを入力してください。";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      nextErrors.email = "メールアドレスの形式を確認してください。";
+    }
+    if (!visitType) nextErrors.visitType = "選択してください。";
+
+    if (Object.keys(nextErrors).length > 0) {
+      setErrors(nextErrors);
+      // Move focus to the first invalid field, in field order — a
+      // sighted mouse user sees the message either way, but a keyboard
+      // or screen-reader user needs focus to land there directly.
+      (nextErrors.name ? nameRef : nextErrors.email ? emailRef : visitTypeRef).current?.focus();
+      return;
+    }
+    setErrors({});
+
     const selectedConcerns = data.getAll("concerns") as string[];
     const concernLabels = selectedConcerns
       .map((id) => concerns.find((c) => c.id === id)?.label)
@@ -114,7 +166,7 @@ export function ConsultationForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+    <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-8">
       <div className="border rule bg-surface px-5 py-4">
         <p className="font-ui-en text-[11px] italic tracking-[0.16em] text-accent-text">DEMO FORM</p>
         <p className="mt-1.5 text-[12px] leading-relaxed text-ink/65">
@@ -127,7 +179,16 @@ export function ConsultationForm() {
           <span className="text-[12px] tracking-wide text-ink/65">
             お名前 <span className="text-accent-text">必須</span>
           </span>
-          <input required type="text" name="name" placeholder="山田 花子" className={fieldClass} />
+          <input
+            ref={nameRef}
+            type="text"
+            name="name"
+            placeholder="山田 花子"
+            aria-invalid={Boolean(errors.name)}
+            aria-describedby={errors.name ? "error-name" : undefined}
+            className={fieldClass}
+          />
+          <FieldError id="error-name" message={errors.name} />
         </label>
 
         <label className="flex flex-col gap-2">
@@ -135,12 +196,15 @@ export function ConsultationForm() {
             メールアドレス <span className="text-accent-text">必須</span>
           </span>
           <input
-            required
+            ref={emailRef}
             type="email"
             name="email"
             placeholder="you@example.com"
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? "error-email" : undefined}
             className={fieldClass}
           />
+          <FieldError id="error-email" message={errors.email} />
         </label>
 
         <label className="flex flex-col gap-2">
@@ -154,7 +218,14 @@ export function ConsultationForm() {
           <span className="text-[12px] tracking-wide text-ink/65">
             相談は初めてですか <span className="text-accent-text">必須</span>
           </span>
-          <select required name="visitType" defaultValue="" className={fieldClass}>
+          <select
+            ref={visitTypeRef}
+            name="visitType"
+            defaultValue=""
+            aria-invalid={Boolean(errors.visitType)}
+            aria-describedby={errors.visitType ? "error-visitType" : undefined}
+            className={fieldClass}
+          >
             <option value="" disabled>
               選択してください
             </option>
@@ -164,6 +235,7 @@ export function ConsultationForm() {
               </option>
             ))}
           </select>
+          <FieldError id="error-visitType" message={errors.visitType} />
         </label>
       </div>
 
