@@ -25,19 +25,20 @@ const principles = [
 
 export default function PricePage() {
   return (
-    <div className="bg-base">
-      <section className="rhythm-tight border-b rule">
-        <div className="frame">
+    <div className="bg-surface">
+      {/* Minimal-information hero — small type, no rule, generous empty
+          space around it. The page's restraint starts before any copy
+          is read. */}
+      <section className="rhythm-peak">
+        <div className="frame text-center">
           <p className="eyebrow text-[12px]">Price</p>
           <FadeText delay={0.1}>
-            <h1 className="font-heading-jp mt-5 text-[32px] leading-[1.5] text-ink md:text-[42px]">
-              価格も、
-              <br />
-              判断材料のひとつだから。
+            <h1 className="font-heading-jp mt-5 text-[24px] leading-[1.6] text-ink md:text-[30px]">
+              価格も、判断材料のひとつだから。
             </h1>
           </FadeText>
           <Reveal delay={0.2}>
-            <p className="font-body-jp mt-6 max-w-lg text-[14.5px] leading-loose text-ink/70">
+            <p className="font-body-jp mx-auto mt-6 max-w-sm text-[12.5px] leading-loose text-ink/50">
               本ページはコンセプトプロジェクトのため、具体的な金額は記載していません。
               実際の料金はカウンセリング時に個別の施術内容に応じて提示します。
             </p>
@@ -45,7 +46,7 @@ export default function PricePage() {
         </div>
       </section>
 
-      <section className="rhythm">
+      <section className="rhythm-tight">
         <div className="frame grid grid-cols-1 gap-8 border-t border-b rule py-2 md:grid-cols-3">
           {principles.map((p, i) => (
             <Reveal key={p.title} delay={0.06 * i}>
@@ -60,7 +61,7 @@ export default function PricePage() {
         </div>
       </section>
 
-      <section className="rhythm border-t rule bg-surface">
+      <section className="rhythm border-t rule bg-base">
         <div className="frame">
           <FadeText>
             <p className="eyebrow text-[12px]">Investment Range (Relative)</p>

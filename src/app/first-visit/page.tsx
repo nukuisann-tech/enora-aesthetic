@@ -33,6 +33,10 @@ const faqs = [
 export default function FirstVisitPage() {
   return (
     <div className="bg-base">
+      {/* Timeline hero — the flow's stage names appear immediately as a
+          quiet horizontal index under the heading, so the page opens
+          already inside its own structure instead of a separate intro
+          paragraph. */}
       <section className="rhythm-tight border-b rule">
         <div className="frame">
           <p className="eyebrow text-[12px]">First Visit</p>
@@ -48,6 +52,18 @@ export default function FirstVisitPage() {
               初めての方は、まず「何が気になっているか」を言葉にすることから始めてください。
               施術の知識は必要ありません。
             </p>
+          </Reveal>
+          <Reveal delay={0.3}>
+            <div className="mt-10 hidden items-center gap-3 sm:flex">
+              {flow.map((s, i) => (
+                <div key={s.en} className="flex items-center gap-3">
+                  <span className="font-ui-en text-[11px] italic tracking-[0.1em] text-ink/40">
+                    {s.en}
+                  </span>
+                  {i < flow.length - 1 && <span className="h-px w-6 bg-line-strong" />}
+                </div>
+              ))}
+            </div>
           </Reveal>
         </div>
       </section>

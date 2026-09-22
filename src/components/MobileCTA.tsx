@@ -9,20 +9,20 @@ export function MobileCTA() {
 
   return (
     <div
-      className="no-print fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t rule bg-base/95 backdrop-blur-md lg:hidden"
+      className="no-print fixed inset-x-0 bottom-0 z-40 grid h-[54px] grid-cols-2 border-t rule bg-base/95 backdrop-blur-md lg:hidden"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
       <Link
-        href="/treatments"
-        className="flex items-center justify-center border-r rule py-4 text-[13px] tracking-wide text-ink"
+        href="/concerns"
+        className="flex items-center justify-center border-r rule text-[12.5px] tracking-wide text-ink/70"
       >
-        施術を見る
+        悩みから探す
       </Link>
       <Link
         href="/consultation"
-        className="flex items-center justify-center bg-dark py-4 text-[13px] tracking-wide text-base"
+        className="flex items-center justify-center bg-dark text-[12.5px] tracking-wide text-base"
       >
-        相談する
+        相談予約
       </Link>
     </div>
   );

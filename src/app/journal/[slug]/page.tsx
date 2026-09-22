@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Reveal, FadeText } from "@/components/Reveal";
-import { image } from "@/lib/images";
+import { image, focal } from "@/lib/images";
 import { articles, findArticle } from "@/data/journal";
 
 export function generateStaticParams() {
@@ -38,7 +38,7 @@ export default async function JournalDetailPage({
           alt={article.imageAlt}
           fill
           sizes="100vw"
-          className="object-cover"
+          className={`object-cover ${focal(article.image)}`}
           priority
         />
       </div>
@@ -59,11 +59,13 @@ export default async function JournalDetailPage({
           </p>
         </Reveal>
 
+        {/* No per-paragraph motion here — a reading page is one of the
+            deliberately still sections (brief §26). */}
         <div className="mt-10 flex flex-col gap-6">
           {article.body.map((paragraph, i) => (
-            <Reveal key={i} delay={0.05 * i}>
-              <p className="font-body-jp text-[14.5px] leading-loose text-ink/75">{paragraph}</p>
-            </Reveal>
+            <p key={i} className="font-body-jp text-[14.5px] leading-loose text-ink/75">
+              {paragraph}
+            </p>
           ))}
         </div>
 

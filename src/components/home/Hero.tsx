@@ -1,59 +1,62 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FadeText, ImageReveal } from "@/components/Reveal";
-import { image } from "@/lib/images";
+import { FadeText } from "@/components/Reveal";
+import { image, focal } from "@/lib/images";
 import { site } from "@/lib/site";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-base">
-      <div className="canvas grid min-h-[86vh] grid-cols-1 items-center gap-10 py-16 md:min-h-[92vh] md:grid-cols-[1.05fr_1fr] md:gap-16 md:py-24">
-        <div>
+    <section className="relative -mt-[64px] h-[100svh] min-h-[560px] w-full overflow-hidden bg-ink md:-mt-[80px]">
+      <Image
+        src={image("mirrorYoung", 2000)}
+        alt="自然光の入る鏡の前で、静かに自分と向き合う女性"
+        fill
+        sizes="100vw"
+        priority
+        className={`object-cover ${focal("mirrorYoung")}`}
+      />
+
+      {/* Editorial index — a quiet signature in the corner, not a UI element. */}
+      <div className="absolute left-5 top-20 md:left-12 md:top-28">
+        <p className="font-ui-en text-[11px] italic tracking-[0.2em] text-base/90 [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
+          01 / {site.concept}
+        </p>
+      </div>
+
+      {/* Copy panel — a solid card in the corner rather than text laid
+          over the photo, so legibility never depends on tuning a
+          gradient against whatever the image happens to do there. */}
+      <div className="absolute inset-x-0 bottom-0 md:inset-x-auto md:bottom-12 md:left-12 md:right-auto">
+        <div className="bg-base/95 px-5 pb-8 pt-7 backdrop-blur-sm md:max-w-[420px] md:px-9 md:py-9">
           <FadeText>
-            <p className="eyebrow text-[12px] md:text-[13px]">{site.concept}</p>
-          </FadeText>
-          <FadeText delay={0.15}>
-            <h1 className="font-heading-jp mt-6 text-[38px] leading-[1.35] text-ink md:text-[56px]">
+            <h1 className="font-heading-jp text-hero text-ink" style={{ fontSize: "clamp(2rem, 5.2vw, 3.4rem)" }}>
               美しさは、
               <br />
               足すより選ぶ。
             </h1>
           </FadeText>
-          <FadeText delay={0.3}>
-            <p className="font-body-jp mt-7 max-w-sm text-[14.5px] leading-loose text-ink/70 md:text-[15px]">
-              必要なことを、
-              <br />
-              一緒に整理するところから。
+          <FadeText delay={0.15}>
+            <p className="font-body-jp mt-5 text-[13.5px] leading-loose text-ink/65 md:text-[14px]">
+              必要なことを、一緒に整理するところから。
             </p>
           </FadeText>
-          <FadeText delay={0.45}>
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+          <FadeText delay={0.3}>
+            <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-3">
               <Link
                 href="/consultation"
-                className="inline-flex items-center border border-ink bg-ink px-7 py-3.5 text-[13px] tracking-wide text-base transition-colors hover:bg-transparent hover:text-ink"
+                className="inline-flex items-center border-b border-ink pb-1 text-[13px] tracking-wide text-ink transition-colors hover:border-accent hover:text-accent"
               >
                 カウンセリングを予約する
               </Link>
               <Link
                 href="/concerns"
-                className="text-[13px] tracking-wide text-ink underline decoration-line underline-offset-8 hover:decoration-accent"
+                className="text-[13px] tracking-wide text-ink/55 underline decoration-line underline-offset-8 hover:text-ink hover:decoration-accent"
               >
                 悩みから探す
               </Link>
             </div>
           </FadeText>
         </div>
-
-        <ImageReveal delay={0.2} className="relative aspect-[4/5] w-full overflow-hidden md:aspect-[3/4]">
-          <Image
-            src={image("mirrorYoung", 1400)}
-            alt="自然光の入る鏡の前で、静かに自分と向き合う女性"
-            fill
-            sizes="(min-width: 768px) 45vw, 90vw"
-            className="object-cover"
-            priority
-          />
-        </ImageReveal>
       </div>
     </section>
   );

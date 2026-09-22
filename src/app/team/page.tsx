@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Reveal, FadeText, ImageReveal } from "@/components/Reveal";
-import { image } from "@/lib/images";
+import { image, focal } from "@/lib/images";
 import { people } from "@/data/team";
 
 export const metadata: Metadata = {
@@ -10,13 +10,26 @@ export const metadata: Metadata = {
 };
 
 export default function TeamPage() {
+  const [director, ...rest] = people;
+
   return (
     <div className="bg-base">
-      <section className="rhythm-tight border-b rule">
-        <div className="frame">
-          <p className="eyebrow text-[12px]">Practitioner</p>
+      {/* Portrait-led hero — the Director's photo opens the page before
+          any heading text, at the largest scale any portrait gets on
+          the site. */}
+      <section className="relative h-[72vh] min-h-[440px] w-full overflow-hidden bg-ink">
+        <Image
+          src={image(director.image, 1800)}
+          alt={director.imageAlt}
+          fill
+          sizes="100vw"
+          priority
+          className={`object-cover ${focal(director.image)}`}
+        />
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/75 via-ink/10 to-transparent px-5 pb-8 pt-24 md:px-12 md:pb-12">
+          <p className="eyebrow text-[12px] text-base/80">Practitioner</p>
           <FadeText delay={0.1}>
-            <h1 className="font-heading-jp mt-5 text-[32px] leading-[1.5] text-ink md:text-[42px]">
+            <h1 className="font-heading-jp mt-3 max-w-lg text-[26px] leading-[1.5] text-base md:text-[38px]">
               何ができるかより、
               <br />
               何を勧めないかまで話せる人へ。
@@ -26,42 +39,54 @@ export default function TeamPage() {
       </section>
 
       <section className="rhythm">
-        <div className="frame flex flex-col gap-20 md:gap-28">
-          {people.map((p, i) => {
-            const reversed = i % 2 === 1;
-            return (
-              <div
-                key={p.slug}
-                className={`grid grid-cols-1 items-center gap-8 md:grid-cols-[0.8fr_1fr] md:gap-16 ${
-                  reversed ? "md:[&>*:first-child]:order-2" : ""
-                }`}
-              >
-                <ImageReveal className="relative aspect-[4/5] w-full max-w-sm overflow-hidden">
-                  <Image
-                    src={image(p.image, 1000)}
-                    alt={p.imageAlt}
-                    fill
-                    sizes="(min-width: 768px) 30vw, 90vw"
-                    className="object-cover"
-                  />
-                </ImageReveal>
-                <Reveal delay={0.1}>
-                  <p className="font-ui-en text-[11px] italic tracking-[0.2em] text-accent">
-                    {p.roleEn}
-                  </p>
-                  <p className="font-heading-jp mt-2 text-[13px] text-ink/60">{p.role}</p>
-                  <h2 className="font-display mt-4 text-[28px] italic text-ink">{p.name}</h2>
-                  <p className="font-heading-jp mt-6 whitespace-pre-line text-[20px] leading-[1.7] text-ink">
-                    {p.thought}
-                  </p>
-                  <p className="font-body-jp mt-5 max-w-md text-[14px] leading-loose text-ink/65">
-                    {p.bio}
-                  </p>
-                </Reveal>
-              </div>
-            );
-          })}
+        <div className="frame">
+          <Reveal>
+            <p className="font-ui-en text-[11px] italic tracking-[0.2em] text-accent">
+              {director.roleEn}
+            </p>
+            <p className="font-heading-jp mt-2 text-[13px] text-ink/60">{director.role}</p>
+            <h2 className="font-display mt-4 text-[30px] italic text-ink">{director.name}</h2>
+            <p className="font-heading-jp mt-6 max-w-xl whitespace-pre-line text-[22px] leading-[1.7] text-ink">
+              {director.thought}
+            </p>
+            <p className="font-body-jp mt-5 max-w-md text-[14px] leading-loose text-ink/65">
+              {director.bio}
+            </p>
+          </Reveal>
         </div>
+
+        {/* The rest are deliberately smaller — a different scale of
+            attention, not a matching row of staff cards. */}
+        <div className="frame mt-20 grid grid-cols-1 gap-16 border-t rule pt-16 md:grid-cols-2 md:gap-20">
+          {rest.map((p) => (
+            <div key={p.slug} className="flex flex-col gap-5 sm:flex-row">
+              <ImageReveal className="relative aspect-[3/4] w-full max-w-[160px] flex-shrink-0 overflow-hidden">
+                <Image
+                  src={image(p.image, 500)}
+                  alt={p.imageAlt}
+                  fill
+                  sizes="160px"
+                  className={`object-cover ${focal(p.image)}`}
+                />
+              </ImageReveal>
+              <div>
+                <p className="font-ui-en text-[11px] italic tracking-[0.18em] text-accent">
+                  {p.roleEn}
+                </p>
+                <p className="font-body-jp text-[12px] text-ink/45">{p.role}</p>
+                <h3 className="font-display mt-2 text-[20px] italic text-ink">{p.name}</h3>
+                <p className="font-heading-jp mt-3 whitespace-pre-line text-[15px] leading-[1.7] text-ink/85">
+                  {p.thought}
+                </p>
+                <p className="font-body-jp mt-3 text-[13px] leading-loose text-ink/55">{p.bio}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="frame mt-12 text-[11px] leading-relaxed text-ink/40">
+          ※「ビューティー・キュレーター」はÉNORA内部の役割上の呼称であり、医療資格の名称ではありません。
+        </p>
       </section>
     </div>
   );

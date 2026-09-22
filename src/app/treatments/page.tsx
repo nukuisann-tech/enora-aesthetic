@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { Reveal, FadeText } from "@/components/Reveal";
+import { ImageReveal, Reveal, FadeText } from "@/components/Reveal";
 import { categories } from "@/data/treatments";
+import { image, focal } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "施術",
@@ -11,21 +13,42 @@ export const metadata: Metadata = {
 export default function TreatmentsPage() {
   return (
     <div className="bg-base">
-      <section className="rhythm-tight border-b rule">
-        <div className="frame">
-          <p className="eyebrow text-[12px]">Treatments</p>
-          <FadeText delay={0.1}>
-            <h1 className="font-heading-jp mt-5 text-[32px] leading-[1.4] text-ink md:text-[44px]">
-              施術は、
-              <br />5つの領域で整理しています。
-            </h1>
-          </FadeText>
-          <Reveal delay={0.2}>
-            <p className="font-body-jp mt-6 max-w-lg text-[14.5px] leading-loose text-ink/70">
-              ここに掲載しているのはコンセプトプロジェクトとしてのサンプル施術です。
-              実際の提案はカウンセリングで個別に設計します。
-            </p>
-          </Reveal>
+      {/* Image + Index hero — a tall photo against a numbered preview of
+          the five categories below, so the page opens on photography
+          rather than another eyebrow/heading/paragraph block. */}
+      <section className="rhythm-tight">
+        <div className="canvas grid grid-cols-1 gap-10 md:grid-cols-[1fr_1.3fr] md:items-end md:gap-16">
+          <ImageReveal className="relative aspect-[4/5] w-full overflow-hidden md:aspect-[3/4]">
+            <Image
+              src={image("eyeDetail", 1000)}
+              alt="美意識を見つめる、目もとのクローズアップ"
+              fill
+              sizes="(min-width: 768px) 35vw, 90vw"
+              className={`object-cover ${focal("eyeDetail")}`}
+            />
+          </ImageReveal>
+          <div>
+            <p className="eyebrow text-[12px]">Treatments</p>
+            <FadeText delay={0.1}>
+              <h1 className="font-heading-jp mt-4 text-h2 text-ink">
+                施術は、
+                <br />5つの領域で。
+              </h1>
+            </FadeText>
+            <ol className="mt-8 flex flex-col gap-2">
+              {categories.map((c) => (
+                <li key={c.id}>
+                  <a
+                    href={`#${c.id}`}
+                    className="font-body-jp flex items-baseline gap-4 py-1.5 text-[13.5px] text-ink/55 hover:text-ink"
+                  >
+                    <span className="font-display text-[12px] italic text-ink/35">{c.no}</span>
+                    {c.nameJa}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </section>
 
@@ -47,26 +70,28 @@ export default function TreatmentsPage() {
               </p>
             </Reveal>
 
-            <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="mt-10 flex flex-col divide-y divide-line border-t rule">
               {c.treatments.map((t, ti) => (
                 <Reveal key={t.slug} delay={0.06 * (ti + 1)}>
                   <Link
                     href={`/treatments/${t.slug}`}
-                    className="group flex h-full flex-col justify-between border rule p-6 transition-colors hover:border-accent"
+                    className="group flex items-baseline justify-between gap-6 py-6"
                   >
                     <div>
                       <p className="font-ui-en text-[10px] italic tracking-[0.16em] text-accent">
                         Sample Treatment
                       </p>
-                      <h3 className="font-display mt-3 text-[20px] italic text-ink">
+                      <h3 className="font-display mt-2 text-[19px] italic text-ink">
                         {t.nameEn}
+                        <span className="font-heading-jp ml-3 text-[13px] not-italic text-ink/60">
+                          {t.name}
+                        </span>
                       </h3>
-                      <p className="font-heading-jp text-[14px] text-ink/70">{t.name}</p>
-                      <p className="font-body-jp mt-4 text-[13px] leading-relaxed text-ink/60">
+                      <p className="font-body-jp mt-2 max-w-lg text-[13px] leading-relaxed text-ink/55">
                         {t.summary}
                       </p>
                     </div>
-                    <span className="mt-6 inline-block text-[12px] tracking-wide text-ink underline decoration-line underline-offset-8 group-hover:decoration-accent">
+                    <span className="whitespace-nowrap text-[12px] tracking-wide text-ink underline decoration-line underline-offset-8 group-hover:decoration-accent">
                       詳しく見る →
                     </span>
                   </Link>

@@ -83,7 +83,7 @@ export default function RootLayout({
       <body>
         <MotionConfig reducedMotion="user">
           <Header />
-          <main className="pb-[68px] pt-[68px] md:pt-[84px] lg:pb-0">{children}</main>
+          <main className="pb-[56px] pt-[64px] md:pt-[80px] lg:pb-0">{children}</main>
           <Footer />
           <MobileCTA />
           <ConceptBadgeFixed />

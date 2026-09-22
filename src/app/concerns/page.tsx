@@ -12,22 +12,31 @@ export const metadata: Metadata = {
 export default function ConcernsPage() {
   return (
     <div className="bg-base">
-      <section className="rhythm-tight border-b rule">
-        <div className="frame">
-          <p className="eyebrow text-[12px]">Concerns</p>
-          <FadeText delay={0.1}>
-            <h1 className="font-heading-jp mt-5 text-[32px] leading-[1.4] text-ink md:text-[44px]">
-              施術名が分からなくても、
-              <br />
-              大丈夫です。
-            </h1>
-          </FadeText>
-          <Reveal delay={0.2}>
-            <p className="font-body-jp mt-6 max-w-lg text-[14.5px] leading-loose text-ink/70">
-              以下はあくまで診断ではなく、悩みから関連するケアの方向性を探すための道しるべです。
-              最終的な判断はカウンセリングで行います。
-            </p>
-          </Reveal>
+      {/* Typography-led hero — no photo, no boxed intro paragraph. The
+          scale of the type itself is the page's opening statement. */}
+      <section className="rhythm-tight">
+        <div className="canvas grid grid-cols-1 gap-6 md:grid-cols-12">
+          <div className="md:col-span-3">
+            <p className="eyebrow text-[12px]">Concerns</p>
+          </div>
+          <div className="md:col-span-9">
+            <FadeText>
+              <h1
+                className="font-heading-jp text-ink"
+                style={{ fontSize: "clamp(2.125rem, 5.5vw, 5rem)", lineHeight: 1.3 }}
+              >
+                施術名が分からなくても、
+                <br />
+                大丈夫です。
+              </h1>
+            </FadeText>
+            <Reveal delay={0.15}>
+              <p className="font-body-jp mt-8 max-w-md text-[13px] leading-loose text-ink/50">
+                以下はあくまで診断ではなく、悩みから関連するケアの方向性を探すための道しるべです。
+                最終的な判断はカウンセリングで行います。
+              </p>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -38,7 +47,10 @@ export default function ConcernsPage() {
             return (
               <Reveal key={c.id} delay={0.04 * i}>
                 <div id={c.id} className="scroll-mt-24 py-8 md:py-10">
-                  <div className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_1.6fr_auto] md:items-center md:gap-8">
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-[auto_1fr_1.6fr_auto] md:items-center md:gap-8">
+                    <span className="font-display hidden text-[13px] italic text-ink/35 md:block">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
                     <div>
                       <h2 className="font-heading-jp text-[22px] text-ink">{c.label}</h2>
                       <p className="font-body-jp mt-1 text-[13px] text-ink/55">{c.description}</p>

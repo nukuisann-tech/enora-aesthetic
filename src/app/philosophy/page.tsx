@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Reveal, FadeText, ImageReveal } from "@/components/Reveal";
-import { image } from "@/lib/images";
+import { image, focal } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "私たちの考え",
@@ -11,11 +11,16 @@ export const metadata: Metadata = {
 export default function PhilosophyPage() {
   return (
     <div className="bg-base">
-      <section className="rhythm-tight border-b rule">
-        <div className="frame">
-          <p className="eyebrow text-[12px]">Philosophy</p>
+      {/* Manifesto hero — dark, centered, no photo. The one page in the
+          site where the statement stands entirely on its own. */}
+      <section className="rhythm-peak bg-dark text-base">
+        <div className="frame text-center">
+          <p className="eyebrow text-[12px] text-accent">Philosophy</p>
           <FadeText delay={0.1}>
-            <h1 className="font-heading-jp mt-5 text-[32px] leading-[1.5] text-ink md:text-[42px]">
+            <h1
+              className="font-heading-jp mt-6"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)", lineHeight: 1.5 }}
+            >
               美しさを、
               <br />
               足し算では考えていません。
@@ -42,7 +47,7 @@ export default function PhilosophyPage() {
               alt="肌の質感を写したクローズアップ"
               fill
               sizes="(min-width: 768px) 40vw, 90vw"
-              className="object-cover"
+              className={`object-cover ${focal("skinDetail")}`}
             />
           </ImageReveal>
         </div>
