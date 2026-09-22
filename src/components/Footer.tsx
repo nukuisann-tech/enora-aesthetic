@@ -23,6 +23,7 @@ const columns = [
     links: [
       { href: "/journal", label: "ジャーナル" },
       { href: "/consultation", label: "相談する" },
+      { href: "/growth-strategy", label: "Growth Strategy" },
     ],
   },
 ];

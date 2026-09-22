@@ -1,0 +1,52 @@
+// Acquisition channels (brief §09/§10) — five, each with one role, not a
+// list of every platform that exists. TikTok / YouTube / broad paid are
+// explicitly deferred, not "eventually all of them."
+export type Channel = {
+  id: string;
+  name: string;
+  role: string;
+  detail: string;
+  destination: string;
+};
+
+export const channels: Channel[] = [
+  {
+    id: "search",
+    name: "Search",
+    role: "Active Problem Discovery",
+    detail:
+      "「毛穴 美容医療」ではなく「毛穴 何したらいい」「美容医療 初めて」「ダウンタイム 少ない」のような、まだ施術名を知らない検索を拾う。",
+    destination: "Concern / Journal / First Visit",
+  },
+  {
+    id: "instagram",
+    name: "Instagram",
+    role: "Aspiration + Education",
+    detail:
+      "Texture・空間・Beauty Philosophy・Concern教育・カウンセリングの考え方。予約を直接取ることより、Brand Fitをつくる。",
+    destination: "Website (Philosophy / Concerns)",
+  },
+  {
+    id: "website",
+    name: "Official Website",
+    role: "Decision Environment",
+    detail:
+      "最重要チャネル。価格・考え方・Risk・People・Treatmentを整理し、SNSではできない深い判断を支援する。",
+    destination: "Selective Beauty Map / Consultation Brief",
+  },
+  {
+    id: "local",
+    name: "Local Search / Google Business Profile",
+    role: "High Intent",
+    detail: "実案件では営業時間・所在地・予約導線などの基本情報を正確に整える。",
+    destination: "Consultation Booking",
+  },
+  {
+    id: "referral",
+    name: "Referral",
+    role: "Trust Transfer",
+    detail:
+      "既存患者から次の患者へ。紹介・口コミの医療広告上の扱いは実案件で最新ルールを確認する前提。",
+    destination: "Consultation",
+  },
+];
