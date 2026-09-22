@@ -3,7 +3,7 @@
 ## Production Commit
 
 - Audit base: `906e77a` (confirmed clean working tree, `git rev-parse HEAD` matched exactly before any work began)
-- Final commit: `cb61c1a` — pushed to `nukuisann-tech/enora-aesthetic` main, deployed to production at https://enora-aesthetic.vercel.app
+- Code changes from this gate: `cb61c1a`, pushed to `nukuisann-tech/enora-aesthetic` main and deployed to production at https://enora-aesthetic.vercel.app (this report file itself is finalized in a trivial follow-up commit, since a commit can't describe its own hash)
 - This was an audit-and-fix pass, not a redesign. Nothing in V2/V3's structure, Visual Peaks, typography, color palette, or photography direction was touched.
 
 ## Production Parity
