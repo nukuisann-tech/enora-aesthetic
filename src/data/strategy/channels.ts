@@ -7,6 +7,9 @@ export type Channel = {
   role: string;
   detail: string;
   destination: string;
+  /** True when `detail` contains an example that is a hypothesis, not
+   * confirmed Search Console / keyword research data. */
+  isHypothesis?: boolean;
 };
 
 export const channels: Channel[] = [
@@ -15,8 +18,9 @@ export const channels: Channel[] = [
     name: "Search",
     role: "Active Problem Discovery",
     detail:
-      "「毛穴 美容医療」ではなく「毛穴 何したらいい」「美容医療 初めて」「ダウンタイム 少ない」のような、まだ施術名を知らない検索を拾う。",
+      "「毛穴 美容医療」のような施術名検索だけでなく、「毛穴 何したらいい」「美容医療 初めて」「ダウンタイム 少ない」のような、まだ施術名を知らない検索クエリの例を想定する(Search Console / Keyword Research未実施のQuery Example)。",
     destination: "Concern / Journal / First Visit",
+    isHypothesis: true,
   },
   {
     id: "instagram",

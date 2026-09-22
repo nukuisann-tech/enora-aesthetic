@@ -1,6 +1,7 @@
 import { Reveal, FadeText } from "@/components/Reveal";
 import { channels } from "@/data/strategy/channels";
 import { StrategyNote } from "./StrategyNote";
+import { ClaimTag } from "./ClaimTag";
 
 export function AcquisitionChannels() {
   return (
@@ -28,6 +29,11 @@ export function AcquisitionChannels() {
                 </p>
               </div>
               <div>
+                {c.isHypothesis && (
+                  <div className="mb-2">
+                    <ClaimTag type="HYPOTHESIS" />
+                  </div>
+                )}
                 <p className="font-body-jp text-[13.5px] leading-relaxed text-ink/75">{c.detail}</p>
                 <p className="font-ui-en mt-2 text-[10px] tracking-[0.08em] text-ink/45">
                   DESTINATION — {c.destination}

@@ -1,5 +1,11 @@
 import { Reveal, FadeText } from "@/components/Reveal";
-import { kpiTree, measurementEvents } from "@/data/strategy/kpi";
+import {
+  kpiTree,
+  measurementEvents,
+  capacityGuardrails,
+  economicsGuardrails,
+  growthFormula,
+} from "@/data/strategy/kpi";
 import { StrategyNote } from "./StrategyNote";
 
 export function KPITree() {
@@ -57,6 +63,41 @@ export function KPITree() {
           「No Treatment」も適切なDecisionになり得るため、Treatment
           Conversion単体を伸ばすTreeにしない。
         </StrategyNote>
+      </Reveal>
+
+      <Reveal delay={0.26} className="mt-16 border-t border-line pt-12">
+        <p className="font-display text-center text-[17px] italic text-ink md:text-[20px]">
+          {growthFormula}
+        </p>
+        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-10 md:grid-cols-2">
+          <div>
+            <p className="font-ui-en text-[10px] tracking-[0.1em] text-ink/45">
+              CAPACITY GUARDRAIL
+            </p>
+            <ul className="mt-3 flex flex-col gap-1">
+              {capacityGuardrails.map((c) => (
+                <li key={c} className="font-ui-en text-[12px] text-ink/70">
+                  {c}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="font-ui-en text-[10px] tracking-[0.1em] text-ink/45">
+              ECONOMICS GUARDRAIL
+            </p>
+            <ul className="mt-3 flex flex-col gap-1">
+              {economicsGuardrails.map((e) => (
+                <li key={e} className="font-ui-en text-[12px] text-ink/70">
+                  {e}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <p className="font-body-jp mx-auto mt-8 max-w-xl text-center text-[12.5px] leading-relaxed text-ink/55">
+          Qualityの指標(左のTree)が上がっても、CapacityかEconomicsのどちらかが崩れていれば、それはGrowthではない。
+        </p>
       </Reveal>
     </div>
   );

@@ -26,10 +26,20 @@ export function NinetyDayBlueprint() {
                   </li>
                 ))}
               </ul>
+              <p className="font-body-jp mt-5 border-t border-line pt-4 text-[12px] italic leading-relaxed text-ink/55">
+                {phase.gate}
+              </p>
             </div>
           </Reveal>
         ))}
       </div>
+
+      <Reveal delay={0.3} className="mt-10 max-w-xl">
+        <p className="font-display text-[15px] italic text-ink">SCALE IS A DECISION.</p>
+        <p className="font-body-jp mt-1.5 text-[12.5px] leading-relaxed text-ink/60">
+          Gateを通過しても、広告出稿の拡大は自動的には行わない。次のフェーズへ進むかどうかは、その都度判断する。
+        </p>
+      </Reveal>
     </div>
   );
 }

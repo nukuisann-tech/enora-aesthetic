@@ -27,11 +27,18 @@ export function AISection() {
             Navigatorに限定し、診断・推薦・医療判断は行わない。
           </p>
         </Reveal>
+        <Reveal delay={0.16}>
+          <p className="font-display mt-8 text-[18px] italic leading-[1.4] text-ink md:text-[21px]">
+            WHEN IT BECOMES MEDICAL,
+            <br />
+            HAND IT TO A HUMAN.
+          </p>
+        </Reveal>
       </div>
 
       <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
         <Reveal>
-          <p className="font-ui-en text-[10px] tracking-[0.1em] text-accent-text">ALLOWED</p>
+          <p className="font-ui-en text-[10px] tracking-[0.1em] text-accent-text">AI MAY HANDLE</p>
           <ul className="mt-2 flex flex-col gap-1">
             {allowed.map((a) => (
               <li key={a} className="text-[12.5px] text-ink/75">
@@ -42,7 +49,7 @@ export function AISection() {
         </Reveal>
         <Reveal delay={0.05}>
           <p className="font-ui-en text-[10px] tracking-[0.1em] text-[color:var(--color-error)]">
-            NOT ALLOWED
+            HUMAN HANDOFF — REQUIRED
           </p>
           <ul className="mt-2 flex flex-col gap-1">
             {forbidden.map((f) => (

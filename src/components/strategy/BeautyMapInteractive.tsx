@@ -1,0 +1,232 @@
+"use client";
+
+import { useState } from "react";
+import { Reveal, FadeText } from "@/components/Reveal";
+import { beautyMapQuestions, priorityGuides } from "@/data/strategy/beautyMap";
+import { StrategyNote } from "./StrategyNote";
+
+type Answers = { concern: string[]; avoid: string[]; priority: string };
+
+const emptyAnswers: Answers = { concern: [], avoid: [], priority: "" };
+
+// A real prototype (brief §14/§15) — every click updates React state only;
+// nothing is sent anywhere, nothing is stored past a reload or a
+// deliberate Reset. That is stated on screen, not just in this comment.
+export function BeautyMapInteractive() {
+  const [step, setStep] = useState(0); // 0..2 = questions, 3 = result
+  const [answers, setAnswers] = useState<Answers>(emptyAnswers);
+
+  const question = beautyMapQuestions[step];
+  const isResult = step >= beautyMapQuestions.length;
+
+  function toggleMulti(id: "concern" | "avoid", option: string) {
+    setAnswers((prev) => {
+      const current = prev[id];
+      const next = current.includes(option)
+        ? current.filter((o) => o !== option)
+        : [...current, option];
+      return { ...prev, [id]: next };
+    });
+  }
+
+  function selectSingle(option: string) {
+    setAnswers((prev) => ({ ...prev, priority: option }));
+  }
+
+  const canAdvance = question
+    ? question.kind === "multi"
+      ? answers[question.id as "concern" | "avoid"].length > 0
+      : answers.priority !== ""
+    : true;
+
+  function reset() {
+    setAnswers(emptyAnswers);
+    setStep(0);
+  }
+
+  const guide = answers.priority ? priorityGuides[answers.priority] : undefined;
+
+  return (
+    <div id="beauty-map" className="rhythm-peak scroll-mt-24 border-t border-line bg-surface">
+      <div className="canvas">
+        <FadeText>
+          <p className="eyebrow text-[12px]">Flagship Growth Asset</p>
+        </FadeText>
+        <Reveal delay={0.06}>
+          <h2 className="font-display mt-4 text-[32px] italic text-ink md:text-[44px]">
+            Selective Beauty Map
+          </h2>
+          <p className="font-heading-jp mt-2 text-[16px] leading-[1.7] text-ink/80 md:text-[18px]">
+            施術を選ぶ前に、自分の基準を整理する。
+          </p>
+        </Reveal>
+
+        <Reveal delay={0.12} className="mt-4 max-w-lg">
+          <p className="font-body-jp text-[13.5px] leading-loose text-ink/65">
+            これはTreatment診断ではない。「あなたにおすすめの施術は◯◯」という結果は絶対に出さない。3つの質問を通じて、本人の考えを整理するだけのツールとして機能する。実際に操作できるDemoです(送信・保存は一切行われません)。
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="canvas mt-14">
+        <div className="mx-auto flex w-full max-w-lg flex-col border border-line-strong bg-base p-6 md:p-10">
+          <div className="flex items-center justify-between">
+            <span className="font-ui-en text-[9px] italic tracking-[0.1em] text-ink/40">
+              {isResult ? "Result" : `Screen ${question.no}`}
+            </span>
+            <div className="flex gap-1.5">
+              {[...beautyMapQuestions.map((q) => q.no), "R"].map((no, i) => (
+                <span
+                  key={no}
+                  className={`h-1 w-1 rounded-full ${
+                    i === step || (isResult && i === beautyMapQuestions.length)
+                      ? "bg-accent-text"
+                      : "bg-line-strong"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {!isResult && question && (
+            <div>
+              <p className="font-heading-jp mt-6 text-[17px] leading-[1.5] text-ink md:text-[19px]">
+                {question.question}
+              </p>
+
+              <div className="mt-6 flex flex-col gap-2">
+                {question.options.map((o) => {
+                  const selected =
+                    question.kind === "multi"
+                      ? answers[question.id as "concern" | "avoid"].includes(o)
+                      : answers.priority === o;
+                  return (
+                    <button
+                      key={o}
+                      type="button"
+                      onClick={() =>
+                        question.kind === "multi"
+                          ? toggleMulti(question.id as "concern" | "avoid", o)
+                          : selectSingle(o)
+                      }
+                      className={`flex items-center gap-3 border px-4 py-3 text-left text-[13px] transition-colors ${
+                        selected ? "border-accent-text text-ink" : "border-line text-ink/60 hover:border-line-strong"
+                      }`}
+                    >
+                      <span
+                        className={`h-3.5 w-3.5 flex-shrink-0 border ${
+                          question.kind === "multi" ? "" : "rounded-full"
+                        } ${selected ? "border-accent-text bg-accent-text" : "border-line-strong"}`}
+                      />
+                      {o}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="mt-8 flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={() => setStep((s) => Math.max(0, s - 1))}
+                  disabled={step === 0}
+                  className="font-ui-en text-[11px] tracking-[0.06em] text-ink/45 underline decoration-line underline-offset-4 disabled:opacity-0"
+                >
+                  ← Back
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setStep((s) => s + 1)}
+                  disabled={!canAdvance}
+                  className="font-ui-en border border-ink px-5 py-2 text-[11px] tracking-[0.1em] text-ink disabled:border-line disabled:text-ink/30"
+                >
+                  NEXT →
+                </button>
+              </div>
+            </div>
+          )}
+
+          {isResult && guide && (
+            <div>
+              <p className="font-heading-jp mt-6 text-[17px] leading-[1.5] text-ink md:text-[19px]">
+                YOUR CONSULTATION BRIEF
+              </p>
+
+              <div className="mt-6 flex flex-col divide-y divide-line border-t border-b border-line">
+                <div className="py-3">
+                  <p className="font-ui-en text-[9px] tracking-[0.08em] text-ink/40">CONCERN</p>
+                  <p className="font-body-jp mt-1 text-[13px] text-ink">
+                    {answers.concern.join(" / ") || "—"}
+                  </p>
+                </div>
+                <div className="py-3">
+                  <p className="font-ui-en text-[9px] tracking-[0.08em] text-ink/40">AVOID</p>
+                  <p className="font-body-jp mt-1 text-[13px] text-ink">
+                    {answers.avoid.join(" / ") || "—"}
+                  </p>
+                </div>
+                <div className="py-3">
+                  <p className="font-ui-en text-[9px] tracking-[0.08em] text-ink/40">PRIORITY</p>
+                  <p className="font-body-jp mt-1 text-[13px] text-ink">{answers.priority}</p>
+                </div>
+              </div>
+
+              <div className="mt-8">
+                <p className="font-ui-en text-[10px] tracking-[0.08em] text-accent-text">
+                  QUESTIONS TO ASK
+                </p>
+                <ul className="mt-2 flex flex-col gap-1.5">
+                  {guide.questionsToAsk.map((q) => (
+                    <li key={q} className="text-[12.5px] leading-relaxed text-ink/75">
+                      — {q}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-6">
+                <p className="font-ui-en text-[10px] tracking-[0.08em] text-ink/45">
+                  PREPARE FOR CONSULTATION
+                </p>
+                <ul className="mt-2 flex flex-col gap-1.5">
+                  {guide.prepareForConsultation.map((p) => (
+                    <li key={p} className="text-[12.5px] leading-relaxed text-ink/75">
+                      — {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <button
+                type="button"
+                onClick={reset}
+                className="font-ui-en mt-10 self-start border border-line-strong px-5 py-2 text-[11px] tracking-[0.1em] text-ink/70 hover:border-ink hover:text-ink"
+              >
+                RESET
+              </button>
+            </div>
+          )}
+        </div>
+
+        <p className="font-ui-en mx-auto mt-4 max-w-lg text-center text-[10px] italic text-ink/40">
+          DEMO ONLY — 入力内容はこのブラウザ上にのみ存在し、送信・保存されません。
+        </p>
+      </div>
+
+      <div className="canvas mt-12 grid grid-cols-1 gap-8 border-t border-line pt-10 md:grid-cols-2">
+        <Reveal>
+          <p className="font-ui-en text-[11px] tracking-[0.1em] text-ink/45">NOT A DIAGNOSIS</p>
+          <p className="font-body-jp mt-2 text-[13px] leading-relaxed text-ink/70">
+            医学的診断・Treatment推薦・適応判断は行わない。役割はSelf-Organization Toolであり、最終判断はMedical
+            Professionalが行う。この位置づけはツール上にも明記する。
+          </p>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <StrategyNote>
+            結果画面はTreatmentを一つに絞り込まず、Questions to AskとPrepare for
+            Consultationへ接続し、Consultation Brief(共有情報)として機能させる。
+          </StrategyNote>
+        </Reveal>
+      </div>
+    </div>
+  );
+}

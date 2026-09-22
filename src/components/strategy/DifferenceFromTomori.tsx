@@ -11,6 +11,10 @@ const rows = [
   },
 ];
 
+// One content source, not a table for desktop plus a duplicate set of
+// cards for mobile. The same divs become a real table via CSS
+// (display:table/table-row/table-cell) at md: and up, and a stacked
+// list below it — rows.map() runs once either way.
 export function DifferenceFromTomori() {
   return (
     <div id="difference" className="canvas rhythm-tight scroll-mt-24 border-t border-line pt-16">
@@ -23,50 +27,35 @@ export function DifferenceFromTomori() {
         </p>
       </Reveal>
 
-      {/* Desktop: a real comparison table. Mobile: stacked cards instead
-          of a horizontally-scrolling 3-column table — swiping sideways
-          inside a small viewport to read the ÉNORA column is exactly the
-          kind of friction this whole site argues against. */}
-      <div className="mt-10 hidden md:block">
-        <table className="w-full border-collapse">
-          <thead>
-            <tr className="border-b border-line-strong text-left">
-              <th className="font-ui-en py-3 pr-4 text-[10px] tracking-[0.1em] text-ink/45">AXIS</th>
-              <th className="font-ui-en py-3 pr-4 text-[10px] tracking-[0.1em] text-ink/45">
-                TOMORI KOMUTEN
-              </th>
-              <th className="font-ui-en py-3 text-[10px] tracking-[0.1em] text-accent-text">
-                ÉNORA AESTHETIC
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((r) => (
-              <tr key={r.axis} className="border-b border-line">
-                <td className="font-heading-jp py-4 pr-4 text-[13.5px] text-ink">{r.axis}</td>
-                <td className="font-body-jp py-4 pr-4 text-[13px] text-ink/60">{r.tomori}</td>
-                <td className="font-body-jp py-4 text-[13px] text-ink">{r.enora}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <div className="mt-10 md:table md:w-full md:border-collapse">
+        <div className="hidden border-b border-line-strong text-left md:table-row">
+          <div className="font-ui-en py-3 pr-4 text-[10px] tracking-[0.1em] text-ink/45 md:table-cell">
+            AXIS
+          </div>
+          <div className="font-ui-en py-3 pr-4 text-[10px] tracking-[0.1em] text-ink/45 md:table-cell">
+            TOMORI KOMUTEN
+          </div>
+          <div className="font-ui-en py-3 text-[10px] tracking-[0.1em] text-accent-text md:table-cell">
+            ÉNORA AESTHETIC
+          </div>
+        </div>
 
-      <div className="mt-10 flex flex-col divide-y divide-line border-t border-b border-line md:hidden">
         {rows.map((r) => (
-          <div key={r.axis} className="py-5">
-            <p className="font-heading-jp text-[14px] text-ink">{r.axis}</p>
-            <div className="mt-3 grid grid-cols-1 gap-3">
-              <div>
-                <p className="font-ui-en text-[10px] tracking-[0.1em] text-ink/45">TOMORI KOMUTEN</p>
-                <p className="font-body-jp mt-1 text-[13px] text-ink/60">{r.tomori}</p>
-              </div>
-              <div>
-                <p className="font-ui-en text-[10px] tracking-[0.1em] text-accent-text">
-                  ÉNORA AESTHETIC
-                </p>
-                <p className="font-body-jp mt-1 text-[13px] text-ink">{r.enora}</p>
-              </div>
+          <div key={r.axis} className="border-b border-line py-5 md:table-row md:py-0">
+            <div className="font-heading-jp text-[14px] text-ink md:table-cell md:py-4 md:pr-4 md:align-baseline md:text-[13.5px]">
+              {r.axis}
+            </div>
+            <div className="mt-3 md:table-cell md:mt-0 md:py-4 md:pr-4 md:align-baseline">
+              <p className="font-ui-en text-[10px] tracking-[0.1em] text-ink/45 md:hidden">
+                TOMORI KOMUTEN
+              </p>
+              <p className="font-body-jp mt-1 text-[13px] text-ink/60 md:mt-0">{r.tomori}</p>
+            </div>
+            <div className="mt-3 md:table-cell md:mt-0 md:py-4 md:align-baseline">
+              <p className="font-ui-en text-[10px] tracking-[0.1em] text-accent-text md:hidden">
+                ÉNORA AESTHETIC
+              </p>
+              <p className="font-body-jp mt-1 text-[13px] text-ink md:mt-0">{r.enora}</p>
             </div>
           </div>
         ))}

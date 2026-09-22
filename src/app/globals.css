@@ -93,6 +93,17 @@ h1, h2, h3, h4 {
   }
 }
 
+/* The fixed vertical ChapterNav (xl:flex, ~220px wide) sits over the
+   right edge of the viewport at every scroll position once it appears.
+   Without this, any section whose rightmost text reaches that band —
+   e.g. a 4-column grid at 1440px — gets visually cut by the nav panel.
+   Above ~1840px the canvas's own centering margin already clears it. */
+@media (min-width: 1280px) and (max-width: 1840px) {
+  .canvas {
+    padding-right: 240px;
+  }
+}
+
 /* Fluid section rhythm (clamp, not stepped breakpoints) — pacing grows
    continuously with viewport instead of jumping at fixed widths, which
    reads calmer and more editorial than a stepped scale.
@@ -162,6 +173,19 @@ h1, h2, h3, h4 {
   }
   .strategy-doc table {
     break-inside: avoid;
+  }
+  /* <details> used for progressive disclosure (Research Basis) should
+     read as a finished document when printed — a client printing this
+     as a proposal shouldn't lose the population/finding/source rows
+     just because they were collapsed on screen. */
+  .strategy-doc details:not([open]) > *:not(summary) {
+    display: block !important;
+  }
+  .strategy-doc summary {
+    list-style: none;
+  }
+  .strategy-doc summary::-webkit-details-marker {
+    display: none;
   }
 }
 

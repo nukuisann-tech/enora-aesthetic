@@ -1,5 +1,6 @@
 import { Reveal, FadeText } from "@/components/Reveal";
 import { contentPillars } from "@/data/strategy/contentPillars";
+import { ClaimTag } from "./ClaimTag";
 
 export function ContentPillars() {
   return (
@@ -21,7 +22,10 @@ export function ContentPillars() {
             <span className="font-display text-[28px] italic text-accent-text">{p.letter}</span>
             <h3 className="font-heading-jp mt-2 text-[16px] text-ink">{p.title}</h3>
             <p className="font-body-jp mt-1 text-[13px] italic text-ink/55">「{p.question}」</p>
-            <ul className="mt-4 flex flex-col gap-1.5">
+            <div className="mt-4 mb-1.5">
+              <ClaimTag type="SAMPLE" />
+            </div>
+            <ul className="flex flex-col gap-1.5">
               {p.examples.map((ex) => (
                 <li key={ex} className="text-[12.5px] leading-relaxed text-ink/70">
                   — {ex}
@@ -31,6 +35,14 @@ export function ContentPillars() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal delay={0.2} className="mt-12 max-w-lg border-l-2 border-line-strong pl-4">
+        <p className="font-body-jp text-[12.5px] leading-relaxed text-ink/60">
+          実案件での優先順位は、Search
+          Demand × Decision Value × Business Relevanceの掛け合わせで決定する。上記はConcept
+          Exampleであり、Target Keyword Listではない。
+        </p>
+      </Reveal>
     </div>
   );
 }

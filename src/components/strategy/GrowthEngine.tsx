@@ -1,11 +1,13 @@
 import { Reveal, FadeText } from "@/components/Reveal";
 
 const before = ["Discover", "Explore", "Understand", "Define", "Trust", "Consult"];
-const after = ["Continue", "Advocate"];
 
 // One editorial journey, not a circle diagram (brief §44) — a single
 // vertical line at every viewport, with Decide visually singled out at
-// its center rather than treated as just another step.
+// its center rather than treated as just another step. What happens
+// after Decide (Continue / Advocate) is not repeated here — it already
+// has its own chapters (The Continuity System, The Growth Loop), and
+// showing it a third time was pure duplication (brief V2 §26).
 export function GrowthEngine() {
   return (
     <div id="engine" className="canvas rhythm scroll-mt-24">
@@ -37,13 +39,6 @@ export function GrowthEngine() {
               Treatmentする / しないを含めて判断する。
             </p>
           </Reveal>
-
-          {after.map((step, i) => (
-            <Reveal key={step} delay={0.04 * i} className="relative pl-8">
-              <span className="absolute left-0 top-1.5 h-3.5 w-3.5 rounded-full border-2 border-accent-text bg-base" />
-              <p className="font-display text-[17px] italic text-ink">{step}</p>
-            </Reveal>
-          ))}
         </div>
       </div>
     </div>

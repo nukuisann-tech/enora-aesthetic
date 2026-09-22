@@ -1,5 +1,6 @@
 import { Reveal, FadeText } from "@/components/Reveal";
 import { validationItems } from "@/data/strategy/validation";
+import { capacityRules } from "@/data/strategy/capacityRules";
 
 export function ValidationSection() {
   return (
@@ -38,6 +39,18 @@ export function ValidationSection() {
         <p className="font-body-jp mt-2 text-[13px] leading-relaxed text-ink/65">
           予約枠以上にLeadを増やしても、Growthとは限らない。Volumeではなく、Capacity・Quality・Economicsまで確認して優先順位を決める。
         </p>
+      </Reveal>
+
+      <Reveal delay={0.22} className="mt-10 flex flex-col divide-y divide-line border-t border-b border-line">
+        {capacityRules.map((r, i) => (
+          <div key={r.condition} className="grid grid-cols-1 gap-1 py-4 md:grid-cols-[1fr_1fr] md:gap-8">
+            <p className="font-ui-en text-[12px] leading-relaxed text-ink/60">
+              <span className="text-ink/35">{String(i + 1).padStart(2, "0")} — </span>
+              {r.condition}
+            </p>
+            <p className="font-body-jp text-[13px] leading-relaxed text-ink">{r.result}</p>
+          </div>
+        ))}
       </Reveal>
     </div>
   );

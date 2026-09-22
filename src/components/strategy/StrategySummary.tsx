@@ -3,12 +3,13 @@ import { Reveal, FadeText } from "@/components/Reveal";
 const rows = [
   { label: "PROBLEM", value: "Information overload" },
   { label: "STRATEGY", value: "Decision quality" },
-  { label: "PRIMARY ASSET", value: "Selective Beauty Map" },
-  { label: "CONVERSION", value: "Consultation Brief" },
-  { label: "RETENTION", value: "Continuity" },
-  { label: "AUTOMATION", value: "Later" },
-  { label: "CORE KPI", value: "Qualified Consultation" },
-  { label: "BUSINESS KPI", value: "Gross Profit" },
+  { label: "MASTER SYSTEM", value: "The ÉNORA Decision System" },
+  { label: "CORE SIGNAL", value: "Qualified Consultation" },
+  { label: "BUSINESS GUARDRAIL", value: "Capacity(Doctor / Staff / Room / Slots)" },
+  { label: "ECONOMICS", value: "Revenue / Gross Profit / CAC" },
+  { label: "DATA PRINCIPLE", value: "Value Before Capture" },
+  { label: "CONTENT PRINCIPLE", value: "Draft → Medical Review → Compliance Check → Publish" },
+  { label: "AUTOMATION", value: "Later — AI After Clarity" },
   { label: "GROWTH LOOP", value: "Decision → Experience → Trust" },
 ];
 

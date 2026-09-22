@@ -33,7 +33,9 @@ export function NurtureStrategy() {
       </div>
 
       <div className="mt-8">
-        <StrategyNote>まだ決めなくて大丈夫です、と言えるSequenceのほうが、次の相談につながりやすい。</StrategyNote>
+        <StrategyNote>
+          即決を促すのではなく、判断材料を提供しながら継続的な接点を維持するSequenceとして設計する。
+        </StrategyNote>
       </div>
     </div>
   );

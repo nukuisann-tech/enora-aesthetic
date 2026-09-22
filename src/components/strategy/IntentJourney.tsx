@@ -9,7 +9,7 @@ const stages = [
   },
   { level: "HIGH INTENT", label: "Consult", items: ["Consultation Brief", "Book Consultation"] },
   { level: "POST CONSULTATION", label: "Decide", items: ["Proceed", "Consider", "No Treatment"] },
-  { level: "CONTINUITY", label: "Continue", items: ["Aftercare", "Follow-up", "Long-term Care"] },
+  { level: "CONTINUITY", label: "Continue", items: ["The Continuity System(後述)"] },
 ];
 
 export function IntentJourney() {
