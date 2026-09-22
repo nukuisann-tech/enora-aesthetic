@@ -25,14 +25,14 @@ export function MedicalTrust() {
           {principles.map((p, i) => (
             <Reveal key={p.en} delay={0.04 * i}>
               <div className="grid grid-cols-[36px_1fr] items-baseline gap-x-5 gap-y-1 border-b border-line py-6 md:grid-cols-[48px_220px_1fr]">
-                <span className="font-ui-en text-[12px] text-ink/35">
+                <span className="font-ui-en text-[12px] text-ink/65">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="font-ui-en text-[15px] font-medium tracking-wide text-ink md:text-[16px]">
                   {p.en}
-                  <span className="font-body-jp ml-3 text-[12px] font-normal text-ink/45">{p.ja}</span>
+                  <span className="font-body-jp ml-3 text-[12px] font-normal text-ink/65">{p.ja}</span>
                 </p>
-                <p className="font-body-jp col-span-2 text-[13px] leading-relaxed text-ink/55 md:col-span-1">
+                <p className="font-body-jp col-span-2 text-[13px] leading-relaxed text-ink/65 md:col-span-1">
                   {p.body}
                 </p>
               </div>

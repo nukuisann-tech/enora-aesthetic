@@ -7,7 +7,7 @@ function StepHeading({ no, en, ja }: { no: string; en: string; ja: string }) {
     <div className="flex items-baseline gap-4 border-t-2 border-accent pt-5">
       <span className="font-display text-[13px] italic text-ink/35">{no}</span>
       <h3 className="font-display text-[22px] italic text-ink">{en}</h3>
-      <span className="font-heading-jp text-[13px] text-ink/55">{ja}</span>
+      <span className="font-heading-jp text-[13px] text-ink/65">{ja}</span>
     </div>
   );
 }
@@ -33,7 +33,7 @@ export function SelectiveApproach() {
               className={`object-cover ${focal("interiorRoom")}`}
             />
           </div>
-          <p className="font-body-jp mt-4 max-w-sm text-[12.5px] leading-relaxed text-ink/50">
+          <p className="font-body-jp mt-4 max-w-sm text-[12.5px] leading-relaxed text-ink/65">
             肌・輪郭・生活・価値観を、施術ありきではなくまず観察します。
           </p>
         </Reveal>

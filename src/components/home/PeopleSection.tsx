@@ -32,15 +32,20 @@ export function PeopleSection() {
             />
           </ImageReveal>
           <Reveal delay={0.1} className="flex flex-col justify-center">
-            <p className="font-ui-en text-[11px] italic tracking-[0.2em] text-accent">
-              {director.roleEn}
-            </p>
-            <p className="font-heading-jp mt-2 text-[13px] text-ink/60">{director.role}</p>
+            <div className="flex items-center gap-3">
+              <p className="font-ui-en text-[11px] italic tracking-[0.2em] text-accent-text">
+                {director.roleEn}
+              </p>
+              <span className="font-ui-en border border-line-strong px-1.5 py-0.5 text-[9px] italic tracking-[0.1em] text-ink/65">
+                CONCEPT PROFILE
+              </span>
+            </div>
+            <p className="font-heading-jp mt-2 text-[13px] text-ink/65">{director.role}</p>
             <h3 className="font-display mt-4 text-[30px] italic text-ink">{director.name}</h3>
             <p className="font-heading-jp mt-6 whitespace-pre-line text-[22px] leading-[1.7] text-ink">
               {director.thought}
             </p>
-            <p className="font-body-jp mt-5 max-w-sm text-[13px] leading-loose text-ink/55">
+            <p className="font-body-jp mt-5 max-w-sm text-[13px] leading-loose text-ink/65">
               {director.bio}
             </p>
           </Reveal>
@@ -62,10 +67,10 @@ export function PeopleSection() {
                 />
               </div>
               <div>
-                <p className="font-ui-en text-[10px] italic tracking-[0.16em] text-accent">
+                <p className="font-ui-en text-[10px] italic tracking-[0.16em] text-accent-text">
                   {p.roleEn}
                 </p>
-                <p className="font-body-jp text-[11px] text-ink/45">{p.role}</p>
+                <p className="font-body-jp text-[11px] text-ink/65">{p.role}</p>
                 <h4 className="font-display mt-2 text-[18px] italic text-ink">{p.name}</h4>
                 <p className="font-heading-jp mt-3 whitespace-pre-line text-[14px] leading-[1.7] text-ink/80">
                   {p.thought}
@@ -75,8 +80,8 @@ export function PeopleSection() {
           ))}
         </div>
 
-        <p className="font-body-jp mt-10 text-[11px] leading-relaxed text-ink/40">
-          ※「ビューティー・キュレーター」はÉNORA内部の役割上の呼称であり、医療資格の名称ではありません。
+        <p className="font-body-jp mt-10 text-[11px] leading-relaxed text-ink/65">
+          ※「ビューティー・キュレーター」「ケア・コーディネーター」はÉNORA内部の役割上の呼称であり、医療資格の名称ではありません。施術の医学的な適応判断は医師が行います。
         </p>
 
         <div className="mt-10 text-center">
@@ -84,7 +89,7 @@ export function PeopleSection() {
             href="/team"
             className="text-[13px] tracking-wide text-ink underline decoration-line underline-offset-8 hover:decoration-accent"
           >
-            practitionerをすべて見る →
+            チームをすべて見る →
           </Link>
         </div>
       </div>

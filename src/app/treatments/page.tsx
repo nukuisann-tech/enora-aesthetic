@@ -40,7 +40,7 @@ export default function TreatmentsPage() {
                 <li key={c.id}>
                   <a
                     href={`#${c.id}`}
-                    className="font-body-jp flex items-baseline gap-4 py-1.5 text-[13.5px] text-ink/55 hover:text-ink"
+                    className="font-body-jp flex items-baseline gap-4 py-1.5 text-[13.5px] text-ink/65 hover:text-ink"
                   >
                     <span className="font-display text-[12px] italic text-ink/35">{c.no}</span>
                     {c.nameJa}
@@ -60,7 +60,7 @@ export default function TreatmentsPage() {
                 <span className="font-display text-[15px] italic text-ink/40">{c.no}</span>
                 <h2 className="font-heading-jp text-[24px] text-ink md:text-[30px]">
                   {c.nameJa}
-                  <span className="font-ui-en ml-3 text-[12px] italic tracking-[0.14em] text-accent">
+                  <span className="font-ui-en ml-3 text-[12px] italic tracking-[0.14em] text-accent-text">
                     {c.nameEn}
                   </span>
                 </h2>
@@ -78,16 +78,16 @@ export default function TreatmentsPage() {
                     className="group flex items-baseline justify-between gap-6 py-6"
                   >
                     <div>
-                      <p className="font-ui-en text-[10px] italic tracking-[0.16em] text-accent">
+                      <p className="font-ui-en text-[10px] italic tracking-[0.16em] text-accent-text">
                         Sample Treatment
                       </p>
                       <h3 className="font-display mt-2 text-[19px] italic text-ink">
                         {t.nameEn}
-                        <span className="font-heading-jp ml-3 text-[13px] not-italic text-ink/60">
+                        <span className="font-heading-jp ml-3 text-[13px] not-italic text-ink/65">
                           {t.name}
                         </span>
                       </h3>
-                      <p className="font-body-jp mt-2 max-w-lg text-[13px] leading-relaxed text-ink/55">
+                      <p className="font-body-jp mt-2 max-w-lg text-[13px] leading-relaxed text-ink/65">
                         {t.summary}
                       </p>
                     </div>

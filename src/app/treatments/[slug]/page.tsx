@@ -6,6 +6,7 @@ import { Reveal, FadeText } from "@/components/Reveal";
 import { allTreatments, findTreatment, categories } from "@/data/treatments";
 import { concerns } from "@/data/concerns";
 import { image, focal, type ImageKey } from "@/lib/images";
+import { ConceptMedicalInfo } from "@/components/ConceptMedicalInfo";
 
 const categoryVisual: Record<string, ImageKey> = {
   "skin-quality": "skinDetail",
@@ -32,10 +33,14 @@ export async function generateMetadata({
 
 const sampleInfo = (treatment: NonNullable<ReturnType<typeof findTreatment>>) => [
   { label: "Treatment Content", ja: "施術内容", value: treatment.content },
-  { label: "Cost", ja: "費用", value: treatment.cost },
+  {
+    label: "Sample Standard Price",
+    ja: "サンプル標準価格",
+    value: `${treatment.samplePriceRange}（Illustrative Sample — Concept Project Only）`,
+  },
   { label: "Duration / Frequency", ja: "回数・頻度の目安", value: treatment.durationFrequency },
   { label: "Downtime", ja: "ダウンタイム", value: treatment.downtime },
-  { label: "Risks / Considerations", ja: "リスク・注意点", value: treatment.risks },
+  { label: "Main Risks / Side Effects", ja: "主なリスク・副作用", value: treatment.risks },
   { label: "Aftercare", ja: "アフターケア", value: treatment.aftercare },
 ];
 
@@ -70,7 +75,7 @@ export default async function TreatmentDetailPage({
             {category && (
               <Link
                 href={`/treatments#${category.id}`}
-                className="font-ui-en text-[11px] italic tracking-[0.14em] text-accent"
+                className="font-ui-en text-[11px] italic tracking-[0.14em] text-accent-text"
               >
                 {category.nameJa} / {category.nameEn}
               </Link>
@@ -82,7 +87,10 @@ export default async function TreatmentDetailPage({
               <p className="font-heading-jp mt-1 text-[16px] text-ink/70">{treatment.name}</p>
             </FadeText>
             <Reveal delay={0.2}>
-              <p className="font-body-jp mt-5 max-w-md text-[14px] leading-loose text-ink/65">
+              <p className="font-ui-en text-[11px] font-medium tracking-[0.1em] text-ink/65">
+                OVERVIEW
+              </p>
+              <p className="font-body-jp mt-3 max-w-md text-[14px] leading-loose text-ink/65">
                 {treatment.summary}
               </p>
             </Reveal>
@@ -94,7 +102,7 @@ export default async function TreatmentDetailPage({
       <section className="rhythm border-t rule">
         <div className="frame grid grid-cols-1 gap-10 md:grid-cols-3">
           <Reveal>
-            <p className="font-ui-en text-[11px] font-medium tracking-[0.1em] text-ink/40">
+            <p className="font-ui-en text-[11px] font-medium tracking-[0.1em] text-ink/65">
               WHO MAY CONSIDER IT
             </p>
             <p className="font-body-jp mt-3 text-[13.5px] leading-relaxed text-ink/70">
@@ -102,7 +110,7 @@ export default async function TreatmentDetailPage({
             </p>
           </Reveal>
           <Reveal delay={0.06}>
-            <p className="font-ui-en text-[11px] font-medium tracking-[0.1em] text-ink/40">
+            <p className="font-ui-en text-[11px] font-medium tracking-[0.1em] text-ink/65">
               WHAT IT IS
             </p>
             <p className="font-body-jp mt-3 text-[13.5px] leading-relaxed text-ink/70">
@@ -110,7 +118,7 @@ export default async function TreatmentDetailPage({
             </p>
           </Reveal>
           <Reveal delay={0.12}>
-            <p className="font-ui-en text-[11px] font-medium tracking-[0.1em] text-ink/40">
+            <p className="font-ui-en text-[11px] font-medium tracking-[0.1em] text-ink/65">
               WHAT TO DISCUSS FIRST
             </p>
             <p className="font-body-jp mt-3 text-[13.5px] leading-relaxed text-ink/70">
@@ -121,7 +129,7 @@ export default async function TreatmentDetailPage({
 
         {relatedConcerns.length > 0 && (
           <div className="frame mt-14 border-t rule pt-10">
-            <p className="font-ui-en text-[11px] font-medium tracking-[0.1em] text-ink/40">
+            <p className="font-ui-en text-[11px] font-medium tracking-[0.1em] text-ink/65">
               RELATED CONCERNS
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
@@ -143,15 +151,15 @@ export default async function TreatmentDetailPage({
           definition list, no brand flourish, readability first. */}
       <section className="rhythm-tight border-t rule bg-[#fbfaf7]">
         <div className="frame">
-          <p className="font-ui-en text-[11px] font-medium tracking-[0.1em] text-ink/40">
+          <p className="font-ui-en text-[11px] font-medium tracking-[0.1em] text-ink/65">
             SAMPLE INFORMATION
           </p>
           <dl className="mt-6 divide-y divide-line border-t border-b rule">
             {sampleInfo(treatment).map((row) => (
               <div key={row.label} className="grid grid-cols-1 gap-1 py-5 md:grid-cols-[240px_1fr] md:gap-6">
-                <dt className="font-ui-en text-[12.5px] font-medium text-ink/60">
+                <dt className="font-ui-en text-[12.5px] font-medium text-ink/65">
                   {row.label}
-                  <span className="font-body-jp ml-2 text-[11px] font-normal text-ink/35">{row.ja}</span>
+                  <span className="font-body-jp ml-2 text-[11px] font-normal text-ink/65">{row.ja}</span>
                 </dt>
                 <dd className="font-body-jp text-[13.5px] leading-relaxed text-ink/75">{row.value}</dd>
               </div>
@@ -160,16 +168,18 @@ export default async function TreatmentDetailPage({
         </div>
       </section>
 
-      <div className="frame rhythm-tight text-center">
-        <p className="font-body-jp text-[13px] text-ink/55">
-          記載内容はコンセプトプロジェクトのサンプルです。実際の適応・回数・費用・リスクはカウンセリングで個別に判断します。
-        </p>
-        <Link
-          href="/consultation"
-          className="mt-6 inline-flex items-center border border-ink bg-ink px-7 py-3.5 text-[13px] tracking-wide text-base transition-colors hover:bg-transparent hover:text-ink"
-        >
-          カウンセリングを予約する
-        </Link>
+      <div className="frame rhythm-tight">
+        <div className="text-center">
+          <Link
+            href="/consultation"
+            className="inline-flex items-center border border-ink bg-ink px-7 py-3.5 text-[13px] tracking-wide text-base transition-colors hover:bg-transparent hover:text-ink"
+          >
+            カウンセリングを予約する
+          </Link>
+        </div>
+        <div className="mt-12">
+          <ConceptMedicalInfo />
+        </div>
       </div>
     </article>
   );

@@ -25,7 +25,7 @@ export default function JournalPage() {
             </h1>
           </FadeText>
           <Reveal delay={0.2}>
-            <p className="font-heading-jp mt-2 text-[13px] text-ink/50">
+            <p className="font-heading-jp mt-2 text-[13px] text-ink/65">
               施術を決める前に、知っておいてほしいこと。
             </p>
           </Reveal>
@@ -46,13 +46,13 @@ export default function JournalPage() {
                 />
               </ImageReveal>
               <div>
-                <p className="font-ui-en text-[10px] italic tracking-[0.16em] text-accent">
+                <p className="font-ui-en text-[10px] italic tracking-[0.16em] text-accent-text">
                   Featured — {featured.category}
                 </p>
                 <h2 className="font-heading-jp mt-3 text-[26px] leading-snug text-ink md:text-[32px]">
                   {featured.title}
                 </h2>
-                <p className="font-body-jp mt-4 max-w-sm text-[13.5px] leading-relaxed text-ink/55">
+                <p className="font-body-jp mt-4 max-w-sm text-[13.5px] leading-relaxed text-ink/65">
                   {featured.excerpt}
                 </p>
                 <span className="mt-5 inline-block text-[12px] tracking-wide text-ink underline decoration-line underline-offset-8 group-hover:decoration-accent">
@@ -66,16 +66,16 @@ export default function JournalPage() {
             {rest.map((a, i) => (
               <Reveal key={a.slug} delay={0.06 * (i + 1)}>
                 <Link href={`/journal/${a.slug}`} className="group block px-0 py-8 md:px-8 md:first:pl-0 md:last:pr-0">
-                  <p className="font-ui-en text-[10px] italic tracking-[0.16em] text-accent">
+                  <p className="font-ui-en text-[10px] italic tracking-[0.16em] text-accent-text">
                     {a.category}
                   </p>
-                  <h3 className="font-heading-jp mt-3 text-[17px] leading-snug text-ink group-hover:text-accent">
+                  <h3 className="font-heading-jp mt-3 text-[17px] leading-snug text-ink group-hover:text-accent-text">
                     {a.title}
                   </h3>
-                  <p className="font-body-jp mt-3 text-[13px] leading-relaxed text-ink/50">
+                  <p className="font-body-jp mt-3 text-[13px] leading-relaxed text-ink/65">
                     {a.excerpt}
                   </p>
-                  <span className="mt-4 inline-block text-[12px] tracking-wide text-ink/50 underline decoration-line underline-offset-4 group-hover:text-ink group-hover:decoration-accent">
+                  <span className="mt-4 inline-block text-[12px] tracking-wide text-ink/65 underline decoration-line underline-offset-4 group-hover:text-ink group-hover:decoration-accent">
                     読む →
                   </span>
                 </Link>

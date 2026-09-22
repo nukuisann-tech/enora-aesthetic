@@ -16,7 +16,7 @@ export function FinalCta() {
           <div className="mt-14 flex flex-col items-center gap-6">
             <Link
               href="/consultation"
-              className="group inline-flex items-center gap-3 border-b border-base/40 pb-1.5 text-[14px] tracking-wide text-base transition-colors hover:border-accent hover:text-accent"
+              className="group inline-flex items-center gap-3 border-b border-base/40 pb-1.5 text-[14px] tracking-wide text-base transition-colors hover:border-accent hover:text-accent-text"
             >
               カウンセリングを予約する
               <span className="transition-transform group-hover:translate-x-1">→</span>

@@ -22,15 +22,15 @@ export function PriceTransparency() {
           {points.map((pt, i) => (
             <Reveal key={pt.en} delay={0.08 * i}>
               <div className="flex items-baseline gap-5 border-b rule py-5">
-                <span className="font-ui-en text-[12px] text-ink/35">
+                <span className="font-ui-en text-[12px] text-ink/65">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
                   <p className="font-ui-en text-[14px] font-medium text-ink">
                     {pt.en}
-                    <span className="font-body-jp ml-2 text-[12px] font-normal text-ink/45">{pt.ja}</span>
+                    <span className="font-body-jp ml-2 text-[12px] font-normal text-ink/65">{pt.ja}</span>
                   </p>
-                  <p className="font-body-jp mt-1 text-[13px] leading-relaxed text-ink/55">{pt.body}</p>
+                  <p className="font-body-jp mt-1 text-[13px] leading-relaxed text-ink/65">{pt.body}</p>
                 </div>
               </div>
             </Reveal>

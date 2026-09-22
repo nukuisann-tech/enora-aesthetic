@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal, FadeText } from "@/components/Reveal";
 import { concerns } from "@/data/concerns";
-import { findCategory } from "@/data/treatments";
 
 export const metadata: Metadata = {
   title: "悩みから探す",
@@ -31,7 +30,7 @@ export default function ConcernsPage() {
               </h1>
             </FadeText>
             <Reveal delay={0.15}>
-              <p className="font-body-jp mt-8 max-w-md text-[13px] leading-loose text-ink/50">
+              <p className="font-body-jp mt-8 max-w-md text-[13px] leading-loose text-ink/65">
                 以下はあくまで診断ではなく、悩みから関連するケアの方向性を探すための道しるべです。
                 最終的な判断はカウンセリングで行います。
               </p>
@@ -42,46 +41,58 @@ export default function ConcernsPage() {
 
       <section className="rhythm">
         <div className="frame divide-y divide-line border-t border-b rule">
-          {concerns.map((c, i) => {
-            const category = findCategory(c.categoryId);
-            return (
-              <Reveal key={c.id} delay={0.04 * i}>
-                <div id={c.id} className="scroll-mt-24 py-8 md:py-10">
-                  <div className="grid grid-cols-1 gap-4 md:grid-cols-[auto_1fr_1.6fr_auto] md:items-center md:gap-8">
-                    <span className="font-display hidden text-[13px] italic text-ink/35 md:block">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div>
-                      <h2 className="font-heading-jp text-[22px] text-ink">{c.label}</h2>
-                      <p className="font-body-jp mt-1 text-[13px] text-ink/55">{c.description}</p>
-                    </div>
-                    {category && (
-                      <p className="font-body-jp text-[13px] leading-relaxed text-ink/60">
-                        <span className="eyebrow mr-2 text-[11px]">Care Direction —</span>
-                        {category.description}
-                      </p>
-                    )}
-                    {category && (
-                      <Link
-                        href={`/treatments#${category.id}`}
-                        className="text-[13px] tracking-wide text-ink underline decoration-line underline-offset-8 hover:decoration-accent"
-                      >
-                        {category.nameJa}を見る →
-                      </Link>
+          {concerns.map((c, i) => (
+            <Reveal key={c.id} delay={0.04 * i}>
+              <div id={c.id} className="scroll-mt-24 py-8 md:py-10">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-[auto_1fr_1.6fr] md:gap-8">
+                  <span className="font-display hidden text-[13px] italic text-ink/65 md:block">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h2 className="font-heading-jp text-[22px] text-ink">{c.label}</h2>
+                    <p className="font-body-jp mt-1 text-[13px] text-ink/65">{c.description}</p>
+                    {c.consultFirst && (
+                      <span className="font-ui-en mt-3 inline-block border border-line-strong px-2 py-0.5 text-[10px] italic tracking-[0.1em] text-ink/65">
+                        CONSULT FIRST
+                      </span>
                     )}
                   </div>
-                  {c.journalSlug && (
-                    <Link
-                      href={`/journal/${c.journalSlug}`}
-                      className="font-ui-en mt-4 inline-block text-[11px] italic tracking-[0.1em] text-accent underline decoration-line underline-offset-4"
-                    >
-                      関連するジャーナルを読む →
-                    </Link>
-                  )}
+
+                  <div>
+                    <p className="font-body-jp text-[12.5px] italic leading-relaxed text-ink/65">
+                      {c.variesBecause}
+                    </p>
+                    <p className="eyebrow mt-4 text-[10px]">Possible Directions</p>
+                    <ul className="mt-2 flex flex-col gap-2.5">
+                      {c.possibleDirections.map((d) => (
+                        <li key={d.label} className="text-[13px] leading-relaxed text-ink/70">
+                          {d.categoryId ? (
+                            <Link
+                              href={`/treatments#${d.categoryId}`}
+                              className="font-heading-jp text-ink underline decoration-line underline-offset-4 hover:decoration-accent"
+                            >
+                              {d.label}
+                            </Link>
+                          ) : (
+                            <span className="font-heading-jp text-ink">{d.label}</span>
+                          )}
+                          <span className="font-body-jp text-ink/65"> — {d.note}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </Reveal>
-            );
-          })}
+                {c.journalSlug && (
+                  <Link
+                    href={`/journal/${c.journalSlug}`}
+                    className="font-ui-en mt-5 inline-block text-[11px] italic tracking-[0.1em] text-accent-text underline decoration-line underline-offset-4"
+                  >
+                    関連するジャーナルを読む →
+                  </Link>
+                )}
+              </div>
+            </Reveal>
+          ))}
         </div>
 
         <div className="frame mt-16 text-center">

@@ -58,15 +58,15 @@ export function TreatmentsIndex() {
                 <div className={reversed ? "md:col-start-2" : "md:col-start-1"}>
                   <span className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
                     <span className="font-display text-[13px] italic text-ink/35">{c.no}</span>
-                    <span className="font-heading-jp whitespace-nowrap text-[22px] text-ink transition-colors group-hover:text-accent md:text-[26px]">
+                    <span className="font-heading-jp whitespace-nowrap text-[22px] text-ink transition-colors group-hover:text-accent-text md:text-[26px]">
                       {c.nameJa}
                     </span>
-                    <span className="font-ui-en whitespace-nowrap text-[11px] italic tracking-[0.14em] text-ink/35">
+                    <span className="font-ui-en whitespace-nowrap text-[11px] italic tracking-[0.14em] text-ink/65">
                       {c.nameEn}
                     </span>
                   </span>
                   <p
-                    className={`font-body-jp mt-3 max-w-md text-[13px] leading-relaxed text-ink/50 transition-opacity ${
+                    className={`font-body-jp mt-3 max-w-md text-[13px] leading-relaxed text-ink/65 transition-opacity ${
                       isHovered ? "opacity-100" : "opacity-70"
                     }`}
                   >

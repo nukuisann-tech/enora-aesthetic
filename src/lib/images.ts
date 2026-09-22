@@ -71,10 +71,14 @@ const raw = {
   },
 
   // Object / Material
+  // Replaced during the V3 site-wide photo-set audit (brief §16/§17):
+  // the original was desaturated/black-and-white against an otherwise
+  // all-color set, which stood out as a different shoot entirely on a
+  // contact sheet. This one keeps the same warm, low-key window light.
   curtainLight: {
-    id: "1780155968749-2b45bcd44884",
-    mobilePosition: "60% 45%",
-    desktopPosition: "60% 45%",
+    id: "1759752784239-d54abca7da0d",
+    mobilePosition: "35% 45%",
+    desktopPosition: "30% 40%",
   },
 } as const satisfies Record<string, Entry>;
 

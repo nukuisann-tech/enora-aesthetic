@@ -15,7 +15,7 @@ export default function PhilosophyPage() {
           site where the statement stands entirely on its own. */}
       <section className="rhythm-peak bg-dark text-base">
         <div className="frame text-center">
-          <p className="eyebrow text-[12px] text-accent">Philosophy</p>
+          <p className="eyebrow text-[12px] text-accent-text">Philosophy</p>
           <FadeText delay={0.1}>
             <h1
               className="font-heading-jp mt-6"

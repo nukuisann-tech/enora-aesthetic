@@ -5,7 +5,7 @@ import { image, focal } from "@/lib/images";
 import { people } from "@/data/team";
 
 export const metadata: Metadata = {
-  title: "practitioner",
+  title: "チーム",
   description: "何ができるかより、何を勧めないかまで話せる人たち。",
 };
 
@@ -27,7 +27,9 @@ export default function TeamPage() {
           className={`object-cover ${focal(director.image)}`}
         />
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/75 via-ink/10 to-transparent px-5 pb-8 pt-24 md:px-12 md:pb-12">
-          <p className="eyebrow text-[12px] text-base/80">Practitioner</p>
+          <p className="eyebrow text-[12px] text-base/95 [text-shadow:0_1px_10px_rgba(0,0,0,0.35)]">
+            Our People
+          </p>
           <FadeText delay={0.1}>
             <h1 className="font-heading-jp mt-3 max-w-lg text-[26px] leading-[1.5] text-base md:text-[38px]">
               何ができるかより、
@@ -41,10 +43,15 @@ export default function TeamPage() {
       <section className="rhythm">
         <div className="frame">
           <Reveal>
-            <p className="font-ui-en text-[11px] italic tracking-[0.2em] text-accent">
-              {director.roleEn}
-            </p>
-            <p className="font-heading-jp mt-2 text-[13px] text-ink/60">{director.role}</p>
+            <div className="flex items-center gap-3">
+              <p className="font-ui-en text-[11px] italic tracking-[0.2em] text-accent-text">
+                {director.roleEn}
+              </p>
+              <span className="font-ui-en border border-line-strong px-1.5 py-0.5 text-[9px] italic tracking-[0.1em] text-ink/65">
+                CONCEPT PROFILE
+              </span>
+            </div>
+            <p className="font-heading-jp mt-2 text-[13px] text-ink/65">{director.role}</p>
             <h2 className="font-display mt-4 text-[30px] italic text-ink">{director.name}</h2>
             <p className="font-heading-jp mt-6 max-w-xl whitespace-pre-line text-[22px] leading-[1.7] text-ink">
               {director.thought}
@@ -70,22 +77,22 @@ export default function TeamPage() {
                 />
               </ImageReveal>
               <div>
-                <p className="font-ui-en text-[11px] italic tracking-[0.18em] text-accent">
+                <p className="font-ui-en text-[11px] italic tracking-[0.18em] text-accent-text">
                   {p.roleEn}
                 </p>
-                <p className="font-body-jp text-[12px] text-ink/45">{p.role}</p>
+                <p className="font-body-jp text-[12px] text-ink/65">{p.role}</p>
                 <h3 className="font-display mt-2 text-[20px] italic text-ink">{p.name}</h3>
                 <p className="font-heading-jp mt-3 whitespace-pre-line text-[15px] leading-[1.7] text-ink/85">
                   {p.thought}
                 </p>
-                <p className="font-body-jp mt-3 text-[13px] leading-loose text-ink/55">{p.bio}</p>
+                <p className="font-body-jp mt-3 text-[13px] leading-loose text-ink/65">{p.bio}</p>
               </div>
             </div>
           ))}
         </div>
 
-        <p className="frame mt-12 text-[11px] leading-relaxed text-ink/40">
-          ※「ビューティー・キュレーター」はÉNORA内部の役割上の呼称であり、医療資格の名称ではありません。
+        <p className="frame mt-12 text-[11px] leading-relaxed text-ink/65">
+          ※「ビューティー・キュレーター」「ケア・コーディネーター」はÉNORA内部の役割上の呼称であり、医療資格の名称ではありません。施術の医学的な適応判断は医師が行います。
         </p>
       </section>
     </div>

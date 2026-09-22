@@ -9,6 +9,13 @@ export type Article = {
   image: ImageKey;
   imageAlt: string;
   body: string[];
+  /**
+   * Journal is decision support, not a blog — every article points back
+   * into the Concern → Treatment → Consultation journey rather than
+   * dead-ending. Either or both may be omitted when not relevant.
+   */
+  relatedConcernId?: string;
+  relatedCategoryId?: string;
 };
 
 export const articles: Article[] = [
@@ -21,6 +28,8 @@ export const articles: Article[] = [
     pullQuote: "「気になること」の数だけ、施術が必要なわけではありません。",
     image: "mirrorYoung",
     imageAlt: "自然光の入る鏡の前で自分と向き合う女性",
+    relatedConcernId: "texture",
+    relatedCategoryId: "skin-quality",
     body: [
       "SNSやクリニックの発信を見れば見るほど、選択肢は増えていきます。増えた選択肢は、安心よりも「これも足りていないのでは」という不安を連れてくることがあります。",
       "ÉNORAのカウンセリングでは、最初に施術の説明をしません。代わりに、鏡を見たときに気になる瞬間、写真に写ったときに気になる部分、日常のどんな場面で気になるかを聞くことから始めます。",
@@ -37,6 +46,8 @@ export const articles: Article[] = [
     pullQuote: "自然に見えることと、何もしていないことは、同じではありません。",
     image: "skinDetail",
     imageAlt: "肌の質感を写したクローズアップ",
+    relatedConcernId: "clarity",
+    relatedCategoryId: "tone-texture",
     body: [
       "「自然な仕上がりにしてください」というご要望は、カウンセリングで最も多く聞く言葉のひとつです。同時に、最も解釈の幅が広い言葉でもあります。",
       "ある人にとっての自然は「変化に気づかれないこと」であり、別の人にとっては「以前より整って見えるが、施術をしたとは分からないこと」です。この違いを確認せずに施術を進めると、技術的には成功していても、本人の満足にはつながりません。",
@@ -52,6 +63,8 @@ export const articles: Article[] = [
     pullQuote: "今は必要ない、という説明にも、時間をかける価値があります。",
     image: "interiorRoom",
     imageAlt: "自然光が差し込む、静かで簡素な室内",
+    relatedConcernId: "aging-signs",
+    relatedCategoryId: "preventive-care",
     body: [
       "美容医療のカウンセリングは、施術の提案で終わることが前提のように語られがちです。しかし実際には「今回は様子を見ましょう」という結論が、その人にとって最も適切な場合があります。",
       "エイジングサインへの予防的なケアのように、時期が早すぎれば効果を実感しにくく、遅すぎれば選択肢が狭まる、というものもあります。適切なタイミングを見極めることも、専門性のうちだと考えています。",
@@ -67,6 +80,8 @@ export const articles: Article[] = [
     pullQuote: "ダウンタイムの説明は、施術の説明と同じくらい重要です。",
     image: "handDetail",
     imageAlt: "手のひらのクローズアップ、静かな質感",
+    relatedConcernId: "tired-look",
+    relatedCategoryId: "body-wellness",
     body: [
       "「効果」の説明に比べて、「その後どう過ごすか」の説明は後回しにされがちです。ですが、仕事や家庭の予定との兼ね合いを事前に把握できているかどうかで、施術後の満足度は大きく変わります。",
       "ÉNORAでは、施術の提案と同時に、想定されるダウンタイムの目安と、その期間中の過ごし方を必ず説明します。「思っていたより長引いた」という感覚は、多くの場合、事前の情報不足から生まれます。",

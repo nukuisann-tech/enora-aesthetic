@@ -90,7 +90,7 @@ export function Header() {
               className={`border-b pb-1 text-[12.5px] tracking-[0.06em] transition-colors ${
                 transparent
                   ? "border-base/50 text-base [text-shadow:0_1px_8px_rgba(0,0,0,0.3)] hover:border-base"
-                  : "border-ink text-ink hover:border-accent hover:text-accent"
+                  : "border-ink text-ink hover:border-accent hover:text-accent-text"
               }`}
             >
               相談する
@@ -132,7 +132,7 @@ export function Header() {
                 className="border-b rule pb-5"
                 style={{ transitionDelay: open ? `${i * 40}ms` : "0ms" }}
               >
-                <span className="font-ui-en block text-xs italic tracking-[0.2em] text-accent">
+                <span className="font-ui-en block text-xs italic tracking-[0.2em] text-accent-text">
                   {item.en}
                 </span>
                 <span className="font-heading-jp mt-1 block text-2xl text-ink">{item.label}</span>

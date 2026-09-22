@@ -7,18 +7,24 @@ import { FadeText } from "@/components/Reveal";
 import { concerns } from "@/data/concerns";
 import { image, focal, type ImageKey } from "@/lib/images";
 
-const categoryVisual: Record<string, ImageKey> = {
-  "skin-quality": "skinDetail",
-  "tone-texture": "eyeDetail",
+// Keyed by concern, not by a single category — a concern here can point
+// to more than one possible direction, so the visual evokes the concern
+// itself rather than standing in for "the" treatment.
+const concernVisual: Record<string, ImageKey> = {
+  texture: "skinDetail",
+  clarity: "eyeDetail",
+  pores: "eyeDetail",
+  dryness: "skinDetail",
   contour: "mirrorYoung",
-  "preventive-care": "curtainLight",
-  "body-wellness": "handDetail",
+  "eye-area": "mirrorYoung",
+  "aging-signs": "curtainLight",
+  "tired-look": "handDetail",
 };
 
 export function ConcernExplorer() {
   const [activeId, setActiveId] = useState(concerns[0].id);
   const active = concerns.find((c) => c.id === activeId) ?? concerns[0];
-  const visualKey = categoryVisual[active.categoryId];
+  const visualKey = concernVisual[active.id];
 
   return (
     <section className="rhythm border-t rule bg-surface">
@@ -44,19 +50,19 @@ export function ConcernExplorer() {
                     className="flex w-full items-baseline justify-between gap-6 py-5 text-left"
                   >
                     <span className="flex items-baseline gap-5">
-                      <span className="font-display text-[13px] italic text-ink/35">
+                      <span className="font-display text-[13px] italic text-ink/65">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span
                         className={`font-heading-jp text-[19px] transition-colors md:text-[22px] ${
-                          isActive ? "text-ink" : "text-ink/45"
+                          isActive ? "text-ink" : "text-ink/65"
                         }`}
                       >
                         {c.label}
                       </span>
                     </span>
                     <span
-                      className={`hidden text-[12px] text-ink/45 transition-opacity sm:block ${
+                      className={`hidden text-[12px] text-ink/65 transition-opacity sm:block ${
                         isActive ? "opacity-100" : "opacity-0"
                       }`}
                     >
@@ -67,12 +73,12 @@ export function ConcernExplorer() {
                   {/* Mobile: description + link expand inline, since there is
                       no adjacent visual pane to react to a hover state. */}
                   <div className={`sm:hidden ${isActive ? "block" : "hidden"} pb-5`}>
-                    <p className="font-body-jp text-[12.5px] leading-relaxed text-ink/55">
+                    <p className="font-body-jp text-[12.5px] leading-relaxed text-ink/65">
                       {c.description}
                     </p>
                     <Link
                       href={`/concerns#${c.id}`}
-                      className="font-ui-en mt-3 inline-block text-[11px] italic tracking-[0.1em] text-accent underline decoration-line underline-offset-4"
+                      className="font-ui-en mt-3 inline-block text-[11px] italic tracking-[0.1em] text-accent-text underline decoration-line underline-offset-4"
                     >
                       詳しく見る →
                     </Link>

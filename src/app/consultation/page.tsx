@@ -22,7 +22,7 @@ export default function ConsultationPage() {
             </h1>
           </FadeText>
           <Reveal delay={0.2}>
-            <p className="font-body-jp mt-4 max-w-md text-[13.5px] leading-loose text-ink/55">
+            <p className="font-body-jp mt-4 max-w-md text-[13.5px] leading-loose text-ink/65">
               施術の予約ではなく、まずはご相談として構いません。「今回は様子を見る」という結論も歓迎しています。
             </p>
           </Reveal>
@@ -40,7 +40,7 @@ export default function ConsultationPage() {
                 <p className="font-body-jp mt-3 text-[14px] text-ink/70">{site.areaLabel}</p>
               </div>
               <div className="border-t rule pt-6">
-                <p className="font-body-jp text-[13px] leading-loose text-ink/55">
+                <p className="font-body-jp text-[13px] leading-loose text-ink/65">
                   ÉNORA AESTHETICは、ポートフォリオ用に制作された架空のコンセプトプロジェクトです。
                   実在のクリニックではありません。
                 </p>

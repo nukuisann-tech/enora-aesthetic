@@ -15,7 +15,7 @@ const columns = [
     links: [
       { href: "/first-visit", label: "初めての方へ" },
       { href: "/price", label: "料金について" },
-      { href: "/team", label: "practitioner" },
+      { href: "/team", label: "チーム" },
     ],
   },
   {
@@ -34,7 +34,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
             <p className="font-display text-2xl italic">{site.nameEn}</p>
-            <p className="font-ui-en mt-1 text-[10px] tracking-[0.3em] text-accent">
+            <p className="font-ui-en mt-1 text-[10px] tracking-[0.3em] text-accent-text">
               {site.concept}
             </p>
             <p className="mt-6 max-w-[220px] text-[13px] leading-loose text-metal">
@@ -62,10 +62,10 @@ export function Footer() {
         </div>
 
         <div className="mt-20 flex flex-col gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between">
-          <p className="text-[11px] text-metal/70">
+          <p className="text-[11px] text-metal/80">
             © {new Date().getFullYear()} {site.nameEn}
           </p>
-          <p className="max-w-md text-[11px] leading-relaxed text-metal/60">
+          <p className="max-w-md text-[11px] leading-relaxed text-metal/80">
             <span className="font-ui-en italic tracking-[0.1em]">CONCEPT PROJECT</span>
             <br />
             本サイトはポートフォリオのために制作した架空の美容クリニックサイトです。

@@ -11,7 +11,7 @@ const flow = [
   { en: "Listen", ja: "聞く", body: "悩み、生活背景、これまでの美容医療の経験を伺います。" },
   { en: "Assess", ja: "確認する", body: "肌・輪郭の状態や既往歴を専門的に確認します。" },
   { en: "Discuss", ja: "話し合う", body: "選択肢と、あえて選ばない理由も含めてお話しします。" },
-  { en: "Select", ja: "選ぶ", body: "必要な範囲だけをお客様ご自身が選びます。" },
+  { en: "Select", ja: "選ぶ", body: "必要な範囲を、相談しながらご本人が選びます。" },
   { en: "Decide", ja: "決める", body: "その場で決めなくて構いません。持ち帰ってご検討ください。" },
 ];
 
@@ -57,7 +57,7 @@ export default function FirstVisitPage() {
             <div className="mt-10 hidden items-center gap-3 sm:flex">
               {flow.map((s, i) => (
                 <div key={s.en} className="flex items-center gap-3">
-                  <span className="font-ui-en text-[11px] italic tracking-[0.1em] text-ink/40">
+                  <span className="font-ui-en text-[11px] italic tracking-[0.1em] text-ink/65">
                     {s.en}
                   </span>
                   {i < flow.length - 1 && <span className="h-px w-6 bg-line-strong" />}
@@ -77,16 +77,16 @@ export default function FirstVisitPage() {
             {flow.map((s, i) => (
               <Reveal key={s.en} delay={0.05 * i}>
                 <div className="grid grid-cols-[auto_1fr] items-baseline gap-x-6 gap-y-1 py-6 md:grid-cols-[40px_140px_1fr]">
-                  <span className="font-display text-[13px] italic text-ink/40">
+                  <span className="font-display text-[13px] italic text-ink/65">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="font-display text-[18px] italic text-ink">
                     {s.en}
-                    <span className="font-heading-jp ml-2 text-[13px] not-italic text-ink/60">
+                    <span className="font-heading-jp ml-2 text-[13px] not-italic text-ink/65">
                       {s.ja}
                     </span>
                   </p>
-                  <p className="font-body-jp col-span-2 text-[13.5px] leading-relaxed text-ink/60 md:col-span-1">
+                  <p className="font-body-jp col-span-2 text-[13.5px] leading-relaxed text-ink/65 md:col-span-1">
                     {s.body}
                   </p>
                 </div>

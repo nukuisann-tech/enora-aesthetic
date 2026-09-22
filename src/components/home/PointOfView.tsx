@@ -19,7 +19,7 @@ export function PointOfView() {
             </h2>
           </FadeText>
           <FadeText delay={0.15}>
-            <p className="font-body-jp mt-8 max-w-md text-[14px] leading-loose text-ink/55">
+            <p className="font-body-jp mt-8 max-w-md text-[14px] leading-loose text-ink/65">
               施術を売る前に、しない理由から考えるブランドでありたいと思っています。
             </p>
           </FadeText>

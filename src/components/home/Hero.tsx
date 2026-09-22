@@ -44,13 +44,13 @@ export function Hero() {
             <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-3">
               <Link
                 href="/consultation"
-                className="inline-flex items-center border-b border-ink pb-1 text-[13px] tracking-wide text-ink transition-colors hover:border-accent hover:text-accent"
+                className="inline-flex items-center border-b border-ink pb-1 text-[13px] tracking-wide text-ink transition-colors hover:border-accent hover:text-accent-text"
               >
                 カウンセリングを予約する
               </Link>
               <Link
                 href="/concerns"
-                className="text-[13px] tracking-wide text-ink/55 underline decoration-line underline-offset-8 hover:text-ink hover:decoration-accent"
+                className="text-[13px] tracking-wide text-ink/65 underline decoration-line underline-offset-8 hover:text-ink hover:decoration-accent"
               >
                 悩みから探す
               </Link>

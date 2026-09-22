@@ -20,7 +20,7 @@ export function SpaceSection() {
           sizes="100vw"
           className={`object-cover ${focal("interiorLobby")}`}
         />
-        <span className="font-ui-en absolute bottom-5 left-5 text-[11px] italic tracking-[0.24em] text-base/90 md:bottom-8 md:left-12">
+        <span className="font-ui-en absolute bottom-5 left-5 text-[11px] italic tracking-[0.24em] text-base/90 [text-shadow:0_1px_10px_rgba(0,0,0,0.45)] md:bottom-8 md:left-12">
           PRIVATE
         </span>
       </ImageReveal>
@@ -36,7 +36,7 @@ export function SpaceSection() {
             sizes="40vw"
             className={`object-cover ${focal("curtainLight")}`}
           />
-          <span className="font-ui-en absolute bottom-4 left-4 text-[10px] italic tracking-[0.2em] text-base/90">
+          <span className="font-ui-en absolute bottom-4 left-4 text-[10px] italic tracking-[0.2em] text-base/90 [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]">
             QUIET
           </span>
         </ImageReveal>
@@ -48,7 +48,7 @@ export function SpaceSection() {
             sizes="60vw"
             className={`object-cover ${focal("interiorHallway")}`}
           />
-          <span className="font-ui-en absolute bottom-4 left-4 text-[10px] italic tracking-[0.2em] text-base/90">
+          <span className="font-ui-en absolute bottom-4 left-4 text-[10px] italic tracking-[0.2em] text-base/90 [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]">
             CONSIDERED
           </span>
         </ImageReveal>

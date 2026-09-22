@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal, FadeText } from "@/components/Reveal";
 import { categories } from "@/data/treatments";
+import { ConceptMedicalInfo } from "@/components/ConceptMedicalInfo";
 
 export const metadata: Metadata = {
   title: "料金について",
-  description: "価格も判断材料のひとつ。ÉNORAが考える料金の伝え方。",
+  description: "価格も判断材料のひとつ。ÉNORAが考える料金の見せ方。",
 };
 
 const principles = [
@@ -38,9 +39,9 @@ export default function PricePage() {
             </h1>
           </FadeText>
           <Reveal delay={0.2}>
-            <p className="font-body-jp mx-auto mt-6 max-w-sm text-[12.5px] leading-loose text-ink/50">
-              本ページはコンセプトプロジェクトのため、具体的な金額は記載していません。
-              実際の料金はカウンセリング時に個別の施術内容に応じて提示します。
+            <p className="font-body-jp mx-auto mt-6 max-w-md text-[12.5px] leading-loose text-ink/65">
+              本ページの価格は、料金情報の見せ方を示すためのConcept Sampleです。
+              実案件では、各施術の標準的な費用・追加費用の条件等を、クライアント提供情報に基づいて明示する想定です。
             </p>
           </Reveal>
         </div>
@@ -52,7 +53,7 @@ export default function PricePage() {
             <Reveal key={p.title} delay={0.06 * i}>
               <div className="border-t-2 border-accent py-8">
                 <h2 className="font-heading-jp text-[16px] leading-snug text-ink">{p.title}</h2>
-                <p className="font-body-jp mt-3 text-[13px] leading-relaxed text-ink/60">
+                <p className="font-body-jp mt-3 text-[13px] leading-relaxed text-ink/65">
                   {p.body}
                 </p>
               </div>
@@ -63,28 +64,39 @@ export default function PricePage() {
 
       <section className="rhythm border-t rule bg-base">
         <div className="frame">
-          <FadeText>
-            <p className="eyebrow text-[12px]">Investment Range (Relative)</p>
-          </FadeText>
+          <div className="flex flex-wrap items-baseline justify-between gap-3">
+            <FadeText>
+              <p className="eyebrow text-[12px]">Sample Price Architecture</p>
+            </FadeText>
+            <span className="font-ui-en text-[10px] italic tracking-[0.14em] text-ink/65">
+              CONCEPT PROJECT ONLY
+            </span>
+          </div>
           <Reveal delay={0.1}>
             <p className="font-body-jp mt-4 max-w-lg text-[13.5px] leading-loose text-ink/65">
-              カテゴリー間のおおよその相対感です。実額ではなく、検討の目安としてご覧ください。
+              実案件で標準費用をどう分かりやすく提示するかを示すサンプルです。
+              下記は実在クリニックの料金ではありません。
             </p>
           </Reveal>
 
           <div className="mt-10 divide-y divide-line border-t border-b rule">
             {categories.map((c, i) => (
               <Reveal key={c.id} delay={0.05 * i}>
-                <div className="flex items-center justify-between gap-6 py-6">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 py-6">
                   <div>
                     <h3 className="font-heading-jp text-[16px] text-ink">{c.nameJa}</h3>
-                    <p className="font-ui-en text-[11px] italic tracking-[0.12em] text-ink/40">
+                    <p className="font-ui-en text-[11px] italic tracking-[0.12em] text-ink/65">
                       {c.nameEn}
                     </p>
                   </div>
-                  <span className="font-display text-[18px] italic tracking-widest text-accent">
-                    {"¥".repeat(i < 2 ? 1 : i < 4 ? 2 : 3)}
-                  </span>
+                  <div className="text-right">
+                    <p className="font-ui-en text-[10px] italic tracking-[0.1em] text-ink/65">
+                      Illustrative Sample
+                    </p>
+                    <p className="font-display text-[19px] italic text-ink">
+                      {c.samplePriceRange}
+                    </p>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -98,8 +110,11 @@ export default function PricePage() {
             href="/consultation"
             className="inline-flex items-center border border-ink bg-ink px-7 py-3.5 text-[13px] tracking-wide text-base transition-colors hover:bg-transparent hover:text-ink"
           >
-            正式なお見積りを相談する
+            カウンセリングを予約する
           </Link>
+          <div className="mt-14">
+            <ConceptMedicalInfo />
+          </div>
         </div>
       </section>
     </div>
