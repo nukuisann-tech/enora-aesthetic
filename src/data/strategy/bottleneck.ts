@@ -11,40 +11,40 @@ export type BottleneckCase = {
 export const bottleneckCases: BottleneckCase[] = [
   {
     no: "01",
-    title: "Low Discovery",
+    title: "認知が少ない",
     signal: "検索・SNS経由の新規流入が少ない",
-    response: "Content Pillars(Decision Support Content)とLocal Search整備を優先する",
+    response: "コンテンツとLocal Search整備を優先する",
   },
   {
     no: "02",
-    title: "Low Clarity",
+    title: "判断できていない",
     signal: "Website訪問はあるが、Beauty Map / Consultation Briefの完了率が低い",
-    response: "Selective Beauty Mapの導線とPrice・Risk情報の見やすさを見直す",
+    response: "Selective Beauty Mapの導線と価格・リスク情報の見やすさを見直す",
   },
   {
     no: "03",
-    title: "Low Booking Completion",
+    title: "予約に至らない",
     signal: "Consultation Brief完了後、予約に至らない",
-    response: "予約フォームの摩擦とNurture Sequenceのタイミングを見直す",
+    response: "予約フォームの摩擦とフォローアップのタイミングを見直す",
   },
   {
     no: "04",
-    title: "Low Show-up",
+    title: "来院しない",
     signal: "予約は取れているが、来院率が低い",
-    response: "予約直前のリマインドとFirst Visit情報の事前送付を強化する",
+    response: "予約直前のリマインドと初回来院情報の事前送付を強化する",
   },
   {
     no: "05",
-    title: "High Staff Load",
-    signal: "Consultation数は十分だが、準備不足の来院が多くスタッフ負荷が高い",
-    response: "Qualified Consultationの条件を強め、集客より事前準備の質を優先する",
+    title: "現場負荷が高い",
+    signal: "相談数は十分だが、準備不足の来院が多く現場の負荷が高い",
+    response: "相談準備が整った状態の条件を強め、集客より事前準備の質を優先する",
   },
 ];
 
-export type PriorityBucket = { bucket: "NOW" | "NEXT" | "LATER"; items: string[] };
+export type PriorityBucket = { label: "今すぐ" | "次に" | "後で"; items: string[] };
 
 export const priorityBuckets: PriorityBucket[] = [
-  { bucket: "NOW", items: ["Consultation Brief導線の整備", "Price・Risk情報の可視性改善"] },
-  { bucket: "NEXT", items: ["Selective Beauty MapのV2実装", "Nurture Sequenceの構築"] },
-  { bucket: "LATER", items: ["AI Decision Navigator", "有料広告の拡大"] },
+  { label: "今すぐ", items: ["Consultation Brief導線の整備", "価格・リスク情報の可視性改善"] },
+  { label: "次に", items: ["Selective Beauty MapのV2実装", "フォローアップの仕組み構築"] },
+  { label: "後で", items: ["AI Decision Navigator", "広告出稿の拡大"] },
 ];

@@ -1,11 +1,16 @@
 import { Reveal, FadeText } from "@/components/Reveal";
 
+// Trimmed per the Japanese-first editorial rebuild — Hero's job is a
+// 5-second read of "what kind of strategy is this," not a stack of
+// English labels. The Growth Loop signature line ("BETTER DECISIONS.
+// BETTER GROWTH.") now appears exactly once, as Chapter 07's closing
+// statement, not repeated here.
 export function StrategyHero() {
   return (
     <div className="rhythm-tight pb-0">
       <div className="canvas">
         <Reveal>
-          <p className="eyebrow text-[11px]">Industry 02 — Aesthetic Medicine</p>
+          <p className="eyebrow text-[11px]">Industry 02 — 美容医療</p>
         </Reveal>
 
         <div className="mt-8 grid grid-cols-1 gap-10 md:mt-10 md:grid-cols-2 md:gap-16">
@@ -33,18 +38,15 @@ export function StrategyHero() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.2} className="mt-10">
-          <p className="font-display text-[15px] italic tracking-[0.02em] text-ink/70 md:text-[17px]">
-            BETTER DECISIONS. BETTER GROWTH.
-          </p>
-          <p className="font-ui-en mt-2 text-[10px] tracking-[0.24em] text-ink/40">
-            SELECTIVE AESTHETICS — GROWTH SYSTEM
+        <Reveal delay={0.2} className="mt-10 max-w-lg">
+          <p className="font-body-jp text-[13.5px] leading-loose text-ink/65">
+            情報が多すぎて選べない顧客に、施術を勧める前に「自分は何を大切にしたいのか」を整理できる仕組みをつくる。
           </p>
         </Reveal>
 
         <Reveal delay={0.25} className="mt-8">
           <span className="inline-flex border border-line-strong px-3 py-1.5 text-[10px] tracking-[0.1em] text-ink/55">
-            CONCEPT STRATEGY — NOT ACTUAL CLIENT RESULTS
+            CONCEPT PROJECT — 実在クリニックの実績ではありません
           </span>
         </Reveal>
       </div>

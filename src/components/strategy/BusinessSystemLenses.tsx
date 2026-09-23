@@ -1,28 +1,44 @@
 import { Reveal, FadeText } from "@/components/Reveal";
 import { businessLenses } from "@/data/strategy/businessSystem";
 
-// An Index, deliberately not a Dashboard (brief §32/§40) — five words and
-// five phrases, no gauges, no numbers, no color bands.
+// Chapter 05 — a 4-row flow, not a KPI tree (editorial rebuild §19):
+// 顧客 → 相談 → 現場 → 事業, one word and one line each. Full KPI/
+// Capacity/Economics detail lives in Supporting Strategy → 計測.
 export function BusinessSystemLenses() {
   return (
-    <div id="business-lenses" className="canvas rhythm-tight scroll-mt-24 border-t border-line pt-16">
+    <div className="canvas rhythm">
       <FadeText>
-        <p className="eyebrow text-[12px]">The Business System — Five Lenses</p>
+        <p className="eyebrow text-[12px]">事業への接続</p>
       </FadeText>
       <Reveal delay={0.06}>
-        <p className="font-body-jp mt-4 max-w-lg text-[13.5px] leading-loose text-ink/65">
-          Marketingだけを見る経営判断はしない。5つのレンズを同時に見る。
-        </p>
+        <h2 className="font-heading-jp mt-4 max-w-lg text-h2 text-ink">
+          良いGrowthは、
+          <br />
+          予約数だけでは判断しない。
+        </h2>
       </Reveal>
 
-      <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-5 md:gap-4">
+      <div className="mt-14 flex flex-col">
         {businessLenses.map((l, i) => (
-          <Reveal key={l.name} delay={0.05 * i} className="border-t-2 border-line-strong pt-4">
-            <p className="font-display text-[18px] italic text-ink">{l.name}</p>
-            <p className="font-ui-en mt-1 text-[10.5px] tracking-[0.06em] text-ink/55">{l.watches}</p>
+          <Reveal key={l.name} delay={0.06 * i}>
+            <div
+              className={`flex items-baseline gap-6 py-6 ${i > 0 ? "border-t border-line" : ""}`}
+            >
+              <span className="font-display text-[20px] italic text-accent-text">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <p className="font-heading-jp w-20 flex-shrink-0 text-[17px] text-ink">{l.name}</p>
+              <p className="font-body-jp text-[14px] text-ink/70">{l.watches}</p>
+            </div>
           </Reveal>
         ))}
       </div>
+
+      <Reveal delay={0.3} className="mt-10 max-w-lg">
+        <p className="font-body-jp text-[13px] leading-relaxed text-ink/55">
+          判断の質は、ひとつの点数にはしない。測定の設計は「詳細設計 — 計測」で扱う。
+        </p>
+      </Reveal>
     </div>
   );
 }

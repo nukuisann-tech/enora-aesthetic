@@ -12,7 +12,7 @@ export function KPITree() {
   return (
     <div id="kpi" className="canvas rhythm-tight scroll-mt-24 border-t border-line pt-16">
       <FadeText>
-        <p className="eyebrow text-[12px]">KPI Tree — Sample Structure</p>
+        <p className="eyebrow text-[12px]">KPIツリー — 構造サンプル</p>
       </FadeText>
       <Reveal delay={0.06}>
         <h2 className="font-heading-jp mt-4 max-w-lg text-[22px] leading-[1.6] text-ink md:text-[27px]">

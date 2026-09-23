@@ -5,7 +5,7 @@ export function DecisionRules() {
   return (
     <div id="decisions" className="canvas rhythm-tight scroll-mt-24 border-t border-line pt-16">
       <FadeText>
-        <p className="eyebrow text-[12px]">If This, Then That</p>
+        <p className="eyebrow text-[12px]">こうなったら、こうする</p>
       </FadeText>
       <Reveal delay={0.06}>
         <p className="font-body-jp mt-4 max-w-lg text-[13.5px] leading-loose text-ink/65">

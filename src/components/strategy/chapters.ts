@@ -1,11 +1,15 @@
 export type Chapter = { id: string; no: string; label: string };
 
-// Five chapters only (brief §40/§55) — not Tomori's 15-item nav. Each id
-// anchors the chapter's opening PartDivider for the scroll-spy nav.
+// Main Story is exactly 7 Japanese-first chapters (Editorial rebuild
+// brief §04/§39) plus one entry for Supporting Strategy (詳細設計) — not
+// a 15-item nav, and not the prior 5-chapter English-labeled set.
 export const chapters: Chapter[] = [
-  { id: "tension", no: "01", label: "The Tension" },
-  { id: "decision-engine", no: "02", label: "The Decision Engine" },
-  { id: "consultation-system", no: "03", label: "The Consultation System" },
-  { id: "continuity-system", no: "04", label: "The Continuity System" },
-  { id: "business-system", no: "05", label: "The Business System" },
+  { id: "problem", no: "01", label: "課題" },
+  { id: "strategy", no: "02", label: "戦略" },
+  { id: "core-system", no: "03", label: "中核システム" },
+  { id: "consultation-experience", no: "04", label: "相談体験" },
+  { id: "business", no: "05", label: "事業" },
+  { id: "ninety-days", no: "06", label: "90日" },
+  { id: "growth-loop", no: "07", label: "成長循環" },
+  { id: "supporting-strategy", no: "—", label: "詳細設計" },
 ];

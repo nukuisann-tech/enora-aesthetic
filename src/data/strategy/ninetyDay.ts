@@ -5,44 +5,34 @@ export type NinetyDayPhase = {
   range: string;
   title: string;
   items: string[];
+  detail: string[];
   gate: string;
 };
 
-// Decision Gates (brief V2 §33) — "SCALE IS A DECISION," not an automatic
-// next step. Each phase ends with a question, not a green light.
+// Decision Gates (editorial rebuild §22/§23) — "SCALE IS A DECISION," not
+// an automatic next step. Each phase shows 3–4 items in the Main Story;
+// the rest folds under a detail disclosure. Gate questions are the
+// Japanese sentence itself, not an English "Decision Gate" label.
 export const ninetyDayPhases: NinetyDayPhase[] = [
   {
-    range: "Day 0–30",
-    title: "UNDERSTAND",
-    items: [
-      "Analytics",
-      "Search Console",
-      "Booking Data",
-      "Consultation Data",
-      "Source Data",
-      "Cancellation",
-      "Capacity",
-      "Baseline",
-    ],
-    gate: "Day 30 Gate — Capacityの上限は把握できたか?Baselineは信頼できる数字か?",
+    range: "0〜30日",
+    title: "現状を知る",
+    items: ["Analytics / Search Console", "予約・相談データ", "Capacity", "Baseline"],
+    detail: ["Booking Data", "Consultation Data", "Source Data", "Cancellation"],
+    gate: "本当のボトルネックはどこか？",
   },
   {
-    range: "Day 31–60",
-    title: "CLARIFY",
-    items: [
-      "Concern Journey",
-      "Price Information",
-      "Content Links",
-      "Selective Beauty Map",
-      "Consultation Brief",
-      "Tracking",
-    ],
-    gate: "Day 60 Gate — Qualified Consultationの比率は上がったか?それは偶然ではないか?",
+    range: "31〜60日",
+    title: "判断しやすくする",
+    items: ["Concern Journey", "価格情報の整理", "Selective Beauty Map", "Consultation Brief"],
+    detail: ["Content Links", "Tracking設計"],
+    gate: "新しい導線は使われているか？",
   },
   {
-    range: "Day 61–90",
-    title: "CONNECT",
-    items: ["Nurture", "Pre-consultation", "Follow-up", "CRM設計", "初期CRO"],
-    gate: "Day 90 Gate — Capacityに余力があるか?Economicsは広告を増やしても崩れないか?",
+    range: "61〜90日",
+    title: "導線をつなぐ",
+    items: ["Nurture", "Pre-consultation", "Follow-up"],
+    detail: ["CRM設計", "初期CRO"],
+    gate: "何を伸ばす価値があるか？",
   },
 ];

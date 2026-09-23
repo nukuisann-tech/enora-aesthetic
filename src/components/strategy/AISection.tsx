@@ -12,7 +12,7 @@ export function AISection() {
     <div id="ai" className="canvas rhythm-tight scroll-mt-24 border-t border-line pt-16">
       <div className="max-w-xl">
         <FadeText>
-          <p className="eyebrow text-[12px]">AI — Phase Later</p>
+          <p className="eyebrow text-[12px]">AI — 導入は後の段階で</p>
         </FadeText>
         <Reveal delay={0.06}>
           <p className="font-display mt-4 text-[26px] italic leading-[1.3] text-ink md:text-[32px]">

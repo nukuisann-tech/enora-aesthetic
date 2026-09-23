@@ -22,13 +22,13 @@ export function NextStepsAndBoundaries() {
   return (
     <div id="next-steps" className="canvas rhythm-tight scroll-mt-24 border-t border-line pt-16">
       <FadeText>
-        <p className="eyebrow text-[12px]">Bottleneck Prescription</p>
+        <p className="eyebrow text-[12px]">ボトルネック別の対応</p>
       </FadeText>
       <Reveal delay={0.06}>
         <p className="font-heading-jp mt-4 max-w-lg text-[17px] leading-[1.7] text-ink">
-          Cross-Sell一覧ではなく、
+          サービス一覧ではなく、
           <br />
-          Bottleneckから逆算する。
+          詰まっている場所から逆算する。
         </p>
       </Reveal>
 
@@ -41,11 +41,11 @@ export function NextStepsAndBoundaries() {
                 {c.title}
               </p>
               <div>
-                <p className="font-ui-en text-[9.5px] tracking-[0.08em] text-ink/45">SIGNAL</p>
+                <p className="text-[10.5px] tracking-[0.06em] text-ink/45">兆候</p>
                 <p className="font-body-jp mt-1 text-[13px] leading-relaxed text-ink/70">{c.signal}</p>
               </div>
               <div>
-                <p className="font-ui-en text-[9.5px] tracking-[0.08em] text-accent-text">RESPONSE</p>
+                <p className="text-[10.5px] tracking-[0.06em] text-accent-text">対応</p>
                 <p className="font-body-jp mt-1 text-[13px] leading-relaxed text-ink">{c.response}</p>
               </div>
             </div>
@@ -55,13 +55,11 @@ export function NextStepsAndBoundaries() {
 
       <div className="mt-14 grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-16">
         <div>
-          <p className="font-ui-en text-[11px] tracking-[0.1em] text-ink/45">
-            NOW / NEXT / LATER
-          </p>
+          <p className="font-ui-en text-[10.5px] tracking-[0.08em] text-ink/45">優先順位</p>
           <div className="mt-4 flex flex-col gap-6">
             {priorityBuckets.map((b, i) => (
-              <Reveal key={b.bucket} delay={0.05 * i}>
-                <p className="font-display text-[14px] italic text-accent-text">{b.bucket}</p>
+              <Reveal key={b.label} delay={0.05 * i}>
+                <p className="font-display text-[14px] italic text-accent-text">{b.label}</p>
                 <ul className="mt-1.5 flex flex-col gap-1">
                   {b.items.map((item) => (
                     <li key={item} className="text-[13px] leading-relaxed text-ink/75">
@@ -76,7 +74,7 @@ export function NextStepsAndBoundaries() {
 
         <div>
           <FadeText>
-            <p className="eyebrow text-[12px]">What Not To Do</p>
+            <p className="eyebrow text-[12px]">やらないこと</p>
           </FadeText>
           <Reveal delay={0.06}>
             <ul className="mt-4 flex flex-col gap-2">

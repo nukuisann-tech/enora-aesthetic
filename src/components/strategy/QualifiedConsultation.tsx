@@ -11,7 +11,7 @@ export function QualifiedConsultation() {
   return (
     <div id="qualified-consultation" className="canvas rhythm-tight scroll-mt-24 border-t border-line pt-16">
       <FadeText>
-        <p className="eyebrow text-[12px]">Defining Qualified Consultation</p>
+        <p className="eyebrow text-[12px]">相談準備が整った状態とは</p>
       </FadeText>
       <Reveal delay={0.06}>
         <h2 className="font-heading-jp mt-4 max-w-lg text-[22px] leading-[1.6] text-ink md:text-[27px]">

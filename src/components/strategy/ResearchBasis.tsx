@@ -9,7 +9,7 @@ export function ResearchBasis() {
   return (
     <div id="research" className="canvas rhythm-tight scroll-mt-24 border-t border-line pt-16">
       <FadeText>
-        <p className="eyebrow text-[12px]">Research Basis — Source Index</p>
+        <p className="eyebrow text-[12px]">調査・設計根拠</p>
       </FadeText>
 
       <div className="mt-8 flex flex-col divide-y divide-line border-t border-b border-line">

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Reveal, FadeText } from "@/components/Reveal";
 import { beautyMapQuestions, priorityGuides } from "@/data/strategy/beautyMap";
-import { StrategyNote } from "./StrategyNote";
 
 type Answers = { concern: string[]; avoid: string[]; priority: string };
 
@@ -47,23 +46,14 @@ export function BeautyMapInteractive() {
   const guide = answers.priority ? priorityGuides[answers.priority] : undefined;
 
   return (
-    <div id="beauty-map" className="rhythm-peak scroll-mt-24 border-t border-line bg-surface">
+    <div id="beauty-map" className="rhythm-peak scroll-mt-24 bg-surface">
       <div className="canvas">
         <FadeText>
-          <p className="eyebrow text-[12px]">Flagship Growth Asset</p>
+          <p className="eyebrow text-[12px]">実際に操作できるDemo</p>
         </FadeText>
-        <Reveal delay={0.06}>
-          <h2 className="font-display mt-4 text-[32px] italic text-ink md:text-[44px]">
-            Selective Beauty Map
-          </h2>
-          <p className="font-heading-jp mt-2 text-[16px] leading-[1.7] text-ink/80 md:text-[18px]">
-            施術を選ぶ前に、自分の基準を整理する。
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.12} className="mt-4 max-w-lg">
-          <p className="font-body-jp text-[13.5px] leading-loose text-ink/65">
-            これはTreatment診断ではない。「あなたにおすすめの施術は◯◯」という結果は絶対に出さない。3つの質問を通じて、本人の考えを整理するだけのツールとして機能する。実際に操作できるDemoです(送信・保存は一切行われません)。
+        <Reveal delay={0.06} className="mt-4 max-w-lg">
+          <p className="font-body-jp text-[13px] leading-loose text-ink/60">
+            施術の診断ではない。おすすめの施術を提示することは絶対にしない。送信・保存は一切行われない。
           </p>
         </Reveal>
       </div>
@@ -210,22 +200,6 @@ export function BeautyMapInteractive() {
         <p className="font-ui-en mx-auto mt-4 max-w-lg text-center text-[10px] italic text-ink/40">
           DEMO ONLY — 入力内容はこのブラウザ上にのみ存在し、送信・保存されません。
         </p>
-      </div>
-
-      <div className="canvas mt-12 grid grid-cols-1 gap-8 border-t border-line pt-10 md:grid-cols-2">
-        <Reveal>
-          <p className="font-ui-en text-[11px] tracking-[0.1em] text-ink/45">NOT A DIAGNOSIS</p>
-          <p className="font-body-jp mt-2 text-[13px] leading-relaxed text-ink/70">
-            医学的診断・Treatment推薦・適応判断は行わない。役割はSelf-Organization Toolであり、最終判断はMedical
-            Professionalが行う。この位置づけはツール上にも明記する。
-          </p>
-        </Reveal>
-        <Reveal delay={0.06}>
-          <StrategyNote>
-            結果画面はTreatmentを一つに絞り込まず、Questions to AskとPrepare for
-            Consultationへ接続し、Consultation Brief(共有情報)として機能させる。
-          </StrategyNote>
-        </Reveal>
       </div>
     </div>
   );

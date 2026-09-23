@@ -8,7 +8,7 @@ export function PrivacyByDesign() {
   return (
     <div id="privacy" className="canvas rhythm-tight scroll-mt-24 border-t border-line pt-16">
       <FadeText>
-        <p className="eyebrow text-[12px]">Privacy by Design</p>
+        <p className="eyebrow text-[12px]">必要な情報だけ扱う</p>
       </FadeText>
       <Reveal delay={0.06}>
         <p className="font-display mt-4 text-[20px] italic leading-[1.4] text-ink md:text-[24px]">

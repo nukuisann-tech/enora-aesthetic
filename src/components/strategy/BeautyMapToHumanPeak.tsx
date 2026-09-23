@@ -1,14 +1,14 @@
 import { Reveal, FadeText } from "@/components/Reveal";
 
 const stages = [
-  { title: "SELECTIVE BEAUTY MAP", subtitle: "Personal Clarity" },
-  { title: "YOUR CONSULTATION BRIEF", subtitle: "Shared Context" },
-  { title: "HUMAN CONSULTATION", subtitle: "Better Conversation" },
+  { title: "自分で整理する", name: "SELECTIVE BEAUTY MAP" },
+  { title: "相手と共有する", name: "YOUR CONSULTATION BRIEF" },
+  { title: "対話して決める", name: "HUMAN CONSULTATION" },
 ];
 
-// Visual Peak 02 — ÉNORA's single biggest differentiator (brief V2 §16):
-// a personal tool that produces a document, that produces a better
-// human conversation. No competitor asset does all three in one line.
+// Visual Peak 03 — ÉNORA's single biggest differentiator (editorial
+// rebuild §16): Japanese carries the meaning now, English kept only as a
+// small accent under each stage.
 export function BeautyMapToHumanPeak() {
   return (
     <div id="beauty-to-human" className="rhythm-peak scroll-mt-24 bg-dark text-base">
@@ -23,11 +23,9 @@ export function BeautyMapToHumanPeak() {
           {stages.map((s, i) => (
             <div key={s.title} className="flex flex-col items-center md:flex-row md:items-start">
               <Reveal delay={0.08 * i} className="flex flex-col items-center text-center md:w-[190px]">
-                <p className="font-heading-jp text-[17px] leading-[1.5] text-base md:text-[19px]">
-                  {s.title}
-                </p>
-                <p className="font-ui-en mt-2 text-[10px] italic tracking-[0.1em] text-accent">
-                  {s.subtitle}
+                <p className="font-heading-jp text-[19px] leading-[1.5] text-base">{s.title}</p>
+                <p className="font-ui-en mt-2 text-[9.5px] italic tracking-[0.08em] text-accent">
+                  {s.name}
                 </p>
               </Reveal>
               {i < stages.length - 1 && (
@@ -39,9 +37,9 @@ export function BeautyMapToHumanPeak() {
 
         <Reveal delay={0.35} className="mt-16">
           <p className="font-heading-jp text-[22px] leading-[1.6] text-base md:text-[28px]">
-            自分の基準が、共有情報になり、
+            「考えていること」が、
             <br />
-            より良い対話になる。
+            「相談できる言葉」に変わる。
           </p>
         </Reveal>
       </div>

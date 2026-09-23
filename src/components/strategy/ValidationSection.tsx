@@ -6,7 +6,7 @@ export function ValidationSection() {
   return (
     <div id="validation" className="canvas rhythm-tight scroll-mt-24 border-t border-line pt-16">
       <FadeText>
-        <p className="eyebrow text-[12px]">Before Implementation</p>
+        <p className="eyebrow text-[12px]">実装前に確認すること</p>
       </FadeText>
       <Reveal delay={0.06}>
         <h2 className="font-heading-jp mt-4 max-w-xl text-[22px] leading-[1.6] text-ink md:text-[27px]">
