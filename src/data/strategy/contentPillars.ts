@@ -17,18 +17,18 @@ export const contentPillars: ContentPillar[] = [
     question: "私が気にしているのは、本当に何？",
     examples: [
       "疲れて見えると感じたとき、最初に整理したいこと",
-      "毛穴が気になるとき、Treatment名より先に確認したいこと",
+      "毛穴が気になるとき、施術名より先に確認したいこと",
     ],
   },
   {
     id: "understand-choice",
     letter: "B",
     title: "UNDERSTAND THE CHOICE",
-    question: "Treatmentをどう比較する？",
+    question: "施術をどう比較する？",
     examples: [
       "価格だけでは比較しにくい理由",
-      "Downtimeを予定から考える",
-      "1回の変化と継続Careの違い",
+      "ダウンタイムを予定から考える",
+      "1回の変化と継続ケアの違い",
     ],
   },
   {
@@ -38,7 +38,7 @@ export const contentPillars: ContentPillar[] = [
     question: "何を確認してから決める？",
     examples: [
       "美容医療のカウンセリングで聞いておきたいこと",
-      "Risk / Side Effectの読み方",
+      "リスク・副作用の読み方",
       "当日に決めなくてもいい理由",
     ],
   },

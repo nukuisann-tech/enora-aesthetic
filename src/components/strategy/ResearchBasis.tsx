@@ -32,19 +32,19 @@ export function ResearchBasis() {
               </summary>
 
               <div className="mt-4 grid grid-cols-1 gap-4 pl-8 md:grid-cols-[140px_1fr] md:gap-6">
-                <p className="font-ui-en text-[10px] tracking-[0.08em] text-ink/45">POPULATION</p>
+                <p className="text-[10.5px] tracking-[0.04em] text-ink/45">対象</p>
                 <p className="font-body-jp text-[12.5px] text-ink/70">
                   {r.population} — {r.sampleSize}
                 </p>
-                <p className="font-ui-en text-[10px] tracking-[0.08em] text-ink/45">FINDING</p>
+                <p className="text-[10.5px] tracking-[0.04em] text-ink/45">確認できたこと</p>
                 <p className="font-body-jp text-[12.5px] leading-relaxed text-ink/70">{r.finding}</p>
-                <p className="font-ui-en text-[10px] tracking-[0.08em] text-ink/45">
-                  WHY IT MATTERS
+                <p className="text-[10.5px] tracking-[0.04em] text-ink/45">
+                  この戦略への示唆
                 </p>
                 <p className="font-body-jp text-[12.5px] leading-relaxed text-ink/70">
                   {r.whyItMatters}
                 </p>
-                <p className="font-ui-en text-[10px] tracking-[0.08em] text-ink/45">SOURCE</p>
+                <p className="text-[10.5px] tracking-[0.04em] text-ink/45">出典</p>
                 <a
                   href={r.sourceUrl}
                   target="_blank"
@@ -60,7 +60,7 @@ export function ResearchBasis() {
       </div>
 
       <Reveal delay={0.15} className="mt-6 max-w-lg border-l-2 border-line-strong pl-4">
-        <p className="font-ui-en text-[10px] tracking-[0.08em] text-ink/45">RESEARCH LIMITATION</p>
+        <p className="text-[10.5px] tracking-[0.04em] text-ink/45">調査の限界</p>
         <p className="font-body-jp mt-1.5 text-[12px] leading-relaxed text-ink/60">
           {researchLimitation}
         </p>

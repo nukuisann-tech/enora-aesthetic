@@ -6,11 +6,11 @@ export function NurtureStrategy() {
   return (
     <div id="nurture" className="canvas rhythm-tight scroll-mt-24 border-t border-line pt-16">
       <FadeText>
-        <p className="eyebrow text-[12px]">フォローアップ — 販売ではなく判断支援のSequence</p>
+        <p className="eyebrow text-[12px]">フォローアップ — 販売ではなく判断支援の連続性</p>
       </FadeText>
       <Reveal delay={0.06}>
         <p className="font-body-jp mt-4 max-w-lg text-[13.5px] leading-loose text-ink/65">
-          LINEを前提にしない。Email、または実案件のCRMチャネルを使う想定。
+          LINEを前提にしない。メール、または実案件のCRMチャネルを使う想定。
         </p>
       </Reveal>
 
@@ -34,7 +34,7 @@ export function NurtureStrategy() {
 
       <div className="mt-8">
         <StrategyNote>
-          即決を促すのではなく、判断材料を提供しながら継続的な接点を維持するSequenceとして設計する。
+          即決を促すのではなく、判断材料を提供しながら継続的な接点を維持する仕組みとして設計する。
         </StrategyNote>
       </div>
     </div>

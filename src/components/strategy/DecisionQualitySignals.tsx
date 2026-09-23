@@ -26,7 +26,7 @@ export function DecisionQualitySignals() {
       <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-12 md:gap-y-12">
         {decisionQualitySignals.map((g, i) => (
           <Reveal key={g.group} delay={0.05 * i}>
-            <p className="font-ui-en text-[10px] tracking-[0.1em] text-accent-text">{g.group}</p>
+            <p className="text-[11px] tracking-[0.04em] text-accent-text">{g.group}</p>
             <ul className="mt-3 flex flex-col gap-1.5">
               {g.signals.map((s) => (
                 <li key={s} className="text-[13px] leading-relaxed text-ink/75">

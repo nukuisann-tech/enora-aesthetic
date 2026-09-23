@@ -1,8 +1,8 @@
 import { Reveal, FadeText } from "@/components/Reveal";
 
-const allowed = ["Concern Navigation", "FAQ", "Relevant Content Discovery", "Consultation Brief整理", "Booking Assistance"];
-const forbidden = ["Diagnosis", "Treatment Recommendation", "Risk Judgment", "Medical Advice", "Medication Advice", "Emergency Judgment"];
-const prerequisites = ["FAQ Data", "Consultation Data", "User Questions", "Content Library", "Escalation Rules"];
+const allowed = ["悩みの案内", "FAQ", "関連コンテンツの案内", "Consultation Brief整理", "予約サポート"];
+const forbidden = ["診断", "施術の推薦", "リスク判断", "医療アドバイス", "服薬アドバイス", "緊急時の判断"];
+const prerequisites = ["FAQデータ", "相談データ", "ユーザーからの質問", "コンテンツライブラリ", "エスカレーションルール"];
 
 // Deliberately small and quiet — the point of this section is that
 // ÉNORA can justify NOT building this yet, not that it has an AI
@@ -38,7 +38,7 @@ export function AISection() {
 
       <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
         <Reveal>
-          <p className="font-ui-en text-[10px] tracking-[0.1em] text-accent-text">AI MAY HANDLE</p>
+          <p className="text-[11px] tracking-[0.04em] text-accent-text">AIが担当してよいこと</p>
           <ul className="mt-2 flex flex-col gap-1">
             {allowed.map((a) => (
               <li key={a} className="text-[12.5px] text-ink/75">
@@ -48,8 +48,8 @@ export function AISection() {
           </ul>
         </Reveal>
         <Reveal delay={0.05}>
-          <p className="font-ui-en text-[10px] tracking-[0.1em] text-[color:var(--color-error)]">
-            HUMAN HANDOFF — REQUIRED
+          <p className="text-[11px] tracking-[0.04em] text-[color:var(--color-error)]">
+            人間へ引き継ぐこと
           </p>
           <ul className="mt-2 flex flex-col gap-1">
             {forbidden.map((f) => (
@@ -60,8 +60,8 @@ export function AISection() {
           </ul>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="font-ui-en text-[10px] tracking-[0.1em] text-ink/45">
-            WHEN TO IMPLEMENT
+          <p className="text-[11px] tracking-[0.04em] text-ink/45">
+            導入の前提条件
           </p>
           <ul className="mt-2 flex flex-col gap-1">
             {prerequisites.map((p) => (

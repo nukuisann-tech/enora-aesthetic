@@ -31,8 +31,8 @@ export function PrivacyByDesign() {
       </div>
 
       <div className="mt-14 border-t border-line pt-10">
-        <p className="font-ui-en text-[10px] tracking-[0.1em] text-ink/45">
-          THREE SEPARATE DATA LAYERS
+        <p className="text-[11px] tracking-[0.04em] text-ink/45">
+          3つに分けて扱うデータ
         </p>
         <div className="mt-6 flex flex-col divide-y divide-line border-t border-b border-line">
           {dataLayers.map((l, i) => (
@@ -42,7 +42,7 @@ export function PrivacyByDesign() {
                 <div>
                   <p className="font-body-jp text-[13px] text-ink/70">{l.examples.join(" / ")}</p>
                   {l.note && (
-                    <p className="font-ui-en mt-1 text-[10.5px] tracking-[0.04em] text-accent-text">
+                    <p className="font-body-jp mt-1 text-[10.5px] tracking-[0.02em] text-accent-text">
                       {l.note}
                     </p>
                   )}

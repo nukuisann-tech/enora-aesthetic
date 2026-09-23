@@ -24,7 +24,7 @@ export function AcquisitionChannels() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-heading-jp mt-1 text-[19px] text-ink">{c.name}</h3>
-                <p className="font-ui-en text-[11px] italic tracking-[0.1em] text-accent-text">
+                <p className="font-heading-jp text-[12px] italic tracking-[0.04em] text-accent-text">
                   {c.role}
                 </p>
               </div>
@@ -35,8 +35,8 @@ export function AcquisitionChannels() {
                   </div>
                 )}
                 <p className="font-body-jp text-[13.5px] leading-relaxed text-ink/75">{c.detail}</p>
-                <p className="font-ui-en mt-2 text-[10px] tracking-[0.08em] text-ink/45">
-                  DESTINATION — {c.destination}
+                <p className="mt-2 text-[10.5px] tracking-[0.04em] text-ink/45">
+                  主な導線 — {c.destination}
                 </p>
               </div>
             </div>

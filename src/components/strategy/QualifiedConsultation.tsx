@@ -15,15 +15,14 @@ export function QualifiedConsultation() {
       </FadeText>
       <Reveal delay={0.06}>
         <h2 className="font-heading-jp mt-4 max-w-lg text-[22px] leading-[1.6] text-ink md:text-[27px]">
-          Qualifiedとは、
+          「見込みが高い」ではなく、
           <br />
-          「見込みが高い」ではなく「準備ができている」。
+          「準備ができている」。
         </h2>
       </Reveal>
       <Reveal delay={0.1}>
         <p className="font-body-jp mt-4 max-w-lg text-[13.5px] leading-loose text-ink/65">
-          High Value Lead / Low Value Leadのようなランク付けはしない。以下のいずれかに当てはまる状態を、Better
-          Prepared Consultationと呼ぶ。
+          見込みの高さによるランク付けはしない。以下のいずれかに当てはまる状態を、より準備ができた相談と呼ぶ。
         </p>
       </Reveal>
 
@@ -40,7 +39,7 @@ export function QualifiedConsultation() {
 
       <div className="mt-8">
         <StrategyNote>
-          準備ができていない相談が悪いわけではない。ただし準備ができている相談ほど、Consultation時間を対話に使えるため、両者を区別して観察する。
+          準備ができていない相談が悪いわけではない。ただし準備ができている相談ほど、相談時間を対話に使えるため、両者を区別して観察する。
         </StrategyNote>
       </div>
     </div>

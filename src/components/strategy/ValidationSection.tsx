@@ -17,8 +17,8 @@ export function ValidationSection() {
       </Reveal>
 
       <Reveal delay={0.12}>
-        <p className="font-ui-en mt-8 text-[11px] tracking-[0.08em] text-ink/45">
-          WHAT WE WOULD VALIDATE FIRST
+        <p className="mt-8 text-[11px] tracking-[0.04em] text-ink/45">
+          最初に確認すること
         </p>
         <div className="mt-4 grid grid-cols-1 gap-x-10 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-3">
           {validationItems.map((item, i) => (
@@ -34,17 +34,17 @@ export function ValidationSection() {
 
       <Reveal delay={0.18} className="mt-12 max-w-xl border-l-2 border-accent pl-5">
         <p className="font-display text-[16px] italic leading-[1.6] text-ink md:text-[18px]">
-          MORE BOOKINGS ARE NOT ALWAYS BETTER.
+          予約が増えることが、常によいとは限らない。
         </p>
         <p className="font-body-jp mt-2 text-[13px] leading-relaxed text-ink/65">
-          予約枠以上にLeadを増やしても、Growthとは限らない。Volumeではなく、Capacity・Quality・Economicsまで確認して優先順位を決める。
+          予約枠以上に問い合わせを増やしても、成長とは限らない。数ではなく、受け入れ体制・質・収益性まで確認して優先順位を決める。
         </p>
       </Reveal>
 
       <Reveal delay={0.22} className="mt-10 flex flex-col divide-y divide-line border-t border-b border-line">
         {capacityRules.map((r, i) => (
           <div key={r.condition} className="grid grid-cols-1 gap-1 py-4 md:grid-cols-[1fr_1fr] md:gap-8">
-            <p className="font-ui-en text-[12px] leading-relaxed text-ink/60">
+            <p className="font-body-jp text-[12px] leading-relaxed text-ink/60">
               <span className="text-ink/35">{String(i + 1).padStart(2, "0")} — </span>
               {r.condition}
             </p>

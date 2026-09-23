@@ -9,7 +9,7 @@ export function NinetyDayBlueprint() {
       </FadeText>
       <Reveal delay={0.06}>
         <p className="font-body-jp mt-4 max-w-lg text-[13.5px] leading-loose text-ink/65">
-          最初から広告を増やすのではない。Scaleの判断は、この90日のデータを見てから行う。
+          最初から広告を増やすのではない。拡大の判断は、この90日のデータを見てから行う。
         </p>
       </Reveal>
 
@@ -49,7 +49,7 @@ export function NinetyDayBlueprint() {
       </div>
 
       <Reveal delay={0.3} className="mt-12 max-w-xl text-center mx-auto">
-        <p className="font-heading-jp text-[17px] text-ink">Scaleは、判断である。</p>
+        <p className="font-heading-jp text-[17px] text-ink">拡大は、自動では決めない。</p>
         <p className="font-body-jp mt-2 text-[12.5px] leading-relaxed text-ink/60">
           問いに答えられても、広告出稿の拡大は自動的には行わない。次のフェーズへ進むかどうかは、その都度判断する。
         </p>

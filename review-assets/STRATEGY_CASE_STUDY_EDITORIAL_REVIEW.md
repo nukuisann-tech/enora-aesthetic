@@ -247,3 +247,147 @@ Research Basis's own disclosures were re-confirmed still working.
 | 19 | これ以上足すと理解速度を落とす | PASS — no new Main Story content added |
 
 **STRATEGY CASE STUDY COMPLETE.**
+
+---
+
+## Addendum: Final Cleanup Pass (Freeze)
+
+Scope of this pass: no new strategy, no new sections, no new diagrams —
+only finishing the Japanese-first language work inside Supporting
+Strategy (詳細設計), fixing hybrid Japanese/English sentences in the Main
+Story, and adding brand-term glosses on first use. The approved 7-chapter
+Main Story, the one-page overview, and the Beauty Map → Brief → Human
+peak were **not** touched structurally.
+
+### Japanese-first pass on Supporting Strategy
+
+Translated every remaining English UI label/list inside 詳細設計 that
+wasn't a genuine brand or industry term:
+
+- Acquisition Channels: role labels (`Active Problem Discovery` →
+  悩みを検索している段階, `Decision Environment` → 判断材料を確認する場所, etc.),
+  destinations (`DESTINATION —` → 主な導線 —), and the underlying
+  `channels.ts` detail copy.
+- Intent Journey: stage levels (`LOW/MIDDLE/HIGH INTENT` →
+  まだ情報収集中/自分の基準を整理中/相談を検討中), stage verbs (`Explore/Define/
+  Consult/Decide/Continue` → 探る/整理する/相談する/決める/続ける), and item lists.
+- KPI Tree: the tree's own node labels (`Qualified Traffic` → 質の高い流入,
+  `Sustainable Growth` → 持続的な成長, etc.), the headline (`Treatment
+  Conversion Rate` → 施術成約率), `CAPACITY/ECONOMICS GUARDRAIL` labels, and
+  the growth formula itself (`GROWTH = QUALITY × CAPACITY × ECONOMICS` →
+  `成長 = 質 × 受け入れ能力 × 収益性`).
+- Decision Quality Signals: group labels (`BEFORE/DURING/AFTER
+  CONSULTATION` → 相談前/相談中/相談後, matching Chapter 04's own vocabulary
+  exactly) and the outcome list (`Proceed/Consider/Not Now/No Treatment` →
+  進める/考える/今はやらない/施術しない).
+- Privacy by Design: the four principle titles (`Collect Less` →
+  少なく集める, etc.), the three data layer names, and `THREE SEPARATE DATA
+  LAYERS` → 3つに分けて扱うデータ.
+- Clinical Content Governance: the six workflow steps (`Draft` → 下書き,
+  `Medical Review` → 医師レビュー, etc.) and the seven content-type tags.
+- AI section: `AI MAY HANDLE` / `HUMAN HANDOFF — REQUIRED` / `WHEN TO
+  IMPLEMENT` labels and their three lists, fully translated.
+- Bottleneck Prescription: case titles (`Low Discovery` → 認知が少ない, etc.),
+  `SIGNAL/RESPONSE` → 兆候/対応, `NOW/NEXT/LATER` → 今すぐ/次に/後で, and the
+  full "やらないこと" list.
+- Decision Rules, Nurture, Content Pillars, 90-Day detail items, Research
+  Basis labels (`POPULATION/FINDING/WHY IT MATTERS/SOURCE` → 対象/確認できた
+  こと/この戦略への示唆/出典) — all translated on the same principle.
+
+### Hybrid-sentence fixes in the Main Story
+
+- BusinessSystemLenses: "良いGrowthは" → "良い成長は".
+- NinetyDayBlueprint: "Scaleの判断は" → "拡大の判断は"; "Scaleは、判断である。" →
+  "拡大は、自動では決めない。"
+- ClinicalContentGovernance heading: "Treatment・Price・Riskの情報は" →
+  "施術・価格・リスクの情報は".
+- IntentJourney: "Consultationへ押し込まない" → "相談へ押し込まない".
+- ValidationSection: the "MORE BOOKINGS ARE NOT ALWAYS BETTER." headline
+  and its body sentence both rewritten in Japanese ("予約が増えることが、常に
+  よいとは限らない。" / "…数ではなく、受け入れ体制・質・収益性まで確認して優先順位を決める。").
+- QualifiedConsultation: dropped the bare "Qualifiedとは、" heading opener
+  (redundant with the eyebrow above it) and translated "Better Prepared
+  Consultation" / "High Value Lead" language throughout.
+- DifferenceFromTomori: axis labels (Problem/Strategy/Growth Asset/Growth
+  Loop → 課題/戦略/成長資産/成長循環) and both industries' loop descriptions
+  translated to Japanese, matching Chapter 07's own established wording
+  (判断 → 体験 → 信頼 → 次の相談).
+- capacityRules.ts / decisionRules.ts / validation.ts: nouns translated
+  (Booking Completion率 → 予約完了率, Doctor Capacity → 医師の受け入れ, Lead
+  Quality → 問い合わせの質, Treatment Fit → 施術との適合, etc.) while keeping
+  `IF`/`AND`/`THEN` as the established structural connector tags.
+
+### Brand-term first-mention gloss
+
+"Consultation Brief" now carries a one-time Japanese gloss at its true
+first occurrence in reading order — the "この戦略を一枚で" overview's row 03
+now reads "Beauty Map → Consultation Brief(相談前の整理内容) → 人による相談" —
+rather than at a later, less prominent mention.
+
+### Beauty Map UI controls
+
+Per §10's own instruction to prioritize design consistency: translated
+the interactive demo's functional navigation controls to Japanese
+(`← Back` / `NEXT →` / `RESET` → `← 戻る` / `次へ →` / `最初からやり直す`) and its
+result-screen field labels (`CONCERN/AVOID/PRIORITY` → 気になること/避けたい
+こと/大切にしたいこと, `QUESTIONS TO ASK` → 相談で聞きたいこと, `PREPARE FOR
+CONSULTATION` → 相談前に準備すること) — these are controls the user directly
+operates, not stylized screen-mockup chrome. Left as English, deliberately:
+the "Screen 01" corner label and the question headlines themselves
+(`WHAT CONCERNS YOU?` etc.), which function as an intentional app-mockup
+visual style, consistent with how the rest of the demo's frame is styled.
+
+### What was deliberately left as English
+
+- Brand/system names: SELECTIVE BEAUTY MAP, Consultation Brief, SELECTIVE
+  AESTHETICS, DECISION QUALITY GROWTH, BETTER DECISIONS. BETTER GROWTH.
+- Signature statements functioning as brand voice, not labels: "AI AFTER
+  CLARITY. NOT BEFORE.", "WHEN IT BECOMES MEDICAL, HAND IT TO A HUMAN.",
+  "VALUE BEFORE CAPTURE.", "TOO MUCH INFORMATION. TOO LITTLE CLARITY."
+- Genuine industry/tool terms per §05: SEO, CRM, CRO, CAC, Analytics,
+  Search Console, AI, and the DATA/HYPOTHESIS/STRATEGY/SAMPLE `ClaimTag`
+  labels — the last of these now carry a small Japanese gloss
+  (データ/仮説/戦略判断/例) directly in the tag itself.
+- Literal technical identifiers: the `measurementEvents` analytics event
+  names (`Beauty_Map_Start`, etc.) — these represent implementation-level
+  identifiers, not reader-facing copy.
+- Content Pillars' four pillar titles (UNDERSTAND YOUR CONCERN/CHOICE/
+  RISK/PRIORITY) — kept as an intentional lettered (A/B/C/D) naming
+  convention, not flagged in the brief's own examples.
+
+### QA re-verification after this pass
+
+- `npx tsc --noEmit` — clean.
+- `npx eslint src/` — clean.
+- `npm run build` (`next build --webpack`) — succeeds.
+- Playwright at 1920/1440/768/430/390 — zero console errors, zero
+  overflow.
+- Beauty Map keyboard interaction re-verified with the new Japanese
+  button labels (focus → Enter/Space selects, Tab → 次へ advances).
+- All six Supporting Strategy panels opened and screenshotted individually
+  to confirm the translated content renders correctly with no layout
+  breakage.
+- Print-mode force-open re-verified (`.strategy-doc details:not([open])`
+  rule) — unaffected by this pass, still working.
+
+### Final Freeze Checklist (§11)
+
+| # | Check | Result |
+|---|---|---|
+| 1 | 5秒で中心戦略が分かる | PASS |
+| 2 | 30秒でBeauty Mapまで分かる | PASS |
+| 3 | 60秒で事業との接続まで分かる | PASS |
+| 4 | 日本語だけ追って理解できる | PASS — Supporting Strategy now fully Japanese-first |
+| 5 | 必要なら詳細まで読める | PASS — 詳細設計 accordion, unchanged structurally |
+| 6 | Mobileで文字の壁がない | PASS — re-verified, no regressions from this pass |
+| 7 | Brandの世界観を壊していない | PASS — brand/system names and signature lines preserved |
+| 8 | Concept Projectだと明確 | PASS — badge + footer disclaimer unchanged |
+| 9 | Build / Lint / Typecheck正常 | PASS |
+| 10 | 実ブラウザQA正常 | PASS |
+
+## INDUSTRY 02 — GROWTH STRATEGY FROZEN
+
+Per this session's explicit instruction: no further optimization passes
+on this page unless a real bug, a material factual error, or a
+whole-portfolio integration requirement surfaces. Next work moves to
+Industry 03.

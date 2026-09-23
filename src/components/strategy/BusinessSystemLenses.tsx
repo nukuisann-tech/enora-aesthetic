@@ -12,7 +12,7 @@ export function BusinessSystemLenses() {
       </FadeText>
       <Reveal delay={0.06}>
         <h2 className="font-heading-jp mt-4 max-w-lg text-h2 text-ink">
-          良いGrowthは、
+          良い成長は、
           <br />
           予約数だけでは判断しない。
         </h2>

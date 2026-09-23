@@ -119,17 +119,17 @@ export function BeautyMapInteractive() {
                   type="button"
                   onClick={() => setStep((s) => Math.max(0, s - 1))}
                   disabled={step === 0}
-                  className="font-ui-en text-[11px] tracking-[0.06em] text-ink/45 underline decoration-line underline-offset-4 disabled:opacity-0"
+                  className="text-[12px] tracking-[0.02em] text-ink/45 underline decoration-line underline-offset-4 disabled:opacity-0"
                 >
-                  ← Back
+                  ← 戻る
                 </button>
                 <button
                   type="button"
                   onClick={() => setStep((s) => s + 1)}
                   disabled={!canAdvance}
-                  className="font-ui-en border border-ink px-5 py-2 text-[11px] tracking-[0.1em] text-ink disabled:border-line disabled:text-ink/30"
+                  className="border border-ink px-5 py-2 text-[12px] tracking-[0.04em] text-ink disabled:border-line disabled:text-ink/30"
                 >
-                  NEXT →
+                  次へ →
                 </button>
               </div>
             </div>
@@ -143,26 +143,26 @@ export function BeautyMapInteractive() {
 
               <div className="mt-6 flex flex-col divide-y divide-line border-t border-b border-line">
                 <div className="py-3">
-                  <p className="font-ui-en text-[9px] tracking-[0.08em] text-ink/40">CONCERN</p>
+                  <p className="text-[10px] tracking-[0.04em] text-ink/40">気になること</p>
                   <p className="font-body-jp mt-1 text-[13px] text-ink">
                     {answers.concern.join(" / ") || "—"}
                   </p>
                 </div>
                 <div className="py-3">
-                  <p className="font-ui-en text-[9px] tracking-[0.08em] text-ink/40">AVOID</p>
+                  <p className="text-[10px] tracking-[0.04em] text-ink/40">避けたいこと</p>
                   <p className="font-body-jp mt-1 text-[13px] text-ink">
                     {answers.avoid.join(" / ") || "—"}
                   </p>
                 </div>
                 <div className="py-3">
-                  <p className="font-ui-en text-[9px] tracking-[0.08em] text-ink/40">PRIORITY</p>
+                  <p className="text-[10px] tracking-[0.04em] text-ink/40">大切にしたいこと</p>
                   <p className="font-body-jp mt-1 text-[13px] text-ink">{answers.priority}</p>
                 </div>
               </div>
 
               <div className="mt-8">
-                <p className="font-ui-en text-[10px] tracking-[0.08em] text-accent-text">
-                  QUESTIONS TO ASK
+                <p className="text-[10.5px] tracking-[0.04em] text-accent-text">
+                  相談で聞きたいこと
                 </p>
                 <ul className="mt-2 flex flex-col gap-1.5">
                   {guide.questionsToAsk.map((q) => (
@@ -174,8 +174,8 @@ export function BeautyMapInteractive() {
               </div>
 
               <div className="mt-6">
-                <p className="font-ui-en text-[10px] tracking-[0.08em] text-ink/45">
-                  PREPARE FOR CONSULTATION
+                <p className="text-[10.5px] tracking-[0.04em] text-ink/45">
+                  相談前に準備すること
                 </p>
                 <ul className="mt-2 flex flex-col gap-1.5">
                   {guide.prepareForConsultation.map((p) => (
@@ -189,9 +189,9 @@ export function BeautyMapInteractive() {
               <button
                 type="button"
                 onClick={reset}
-                className="font-ui-en mt-10 self-start border border-line-strong px-5 py-2 text-[11px] tracking-[0.1em] text-ink/70 hover:border-ink hover:text-ink"
+                className="mt-10 self-start border border-line-strong px-5 py-2 text-[12px] tracking-[0.04em] text-ink/70 hover:border-ink hover:text-ink"
               >
-                RESET
+                最初からやり直す
               </button>
             </div>
           )}

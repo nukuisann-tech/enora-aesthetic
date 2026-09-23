@@ -6,7 +6,7 @@ const rows = [
   {
     no: "03",
     label: "中核システム",
-    body: "Beauty Map → Consultation Brief → 人による相談",
+    body: "Beauty Map → Consultation Brief(相談前の整理内容) → 人による相談",
   },
   { no: "04", label: "目指す状態", body: "「予約数」ではなく、相談準備が整った状態を増やす。" },
 ];

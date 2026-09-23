@@ -2,17 +2,17 @@ import { Reveal, FadeText } from "@/components/Reveal";
 import { bottleneckCases, priorityBuckets } from "@/data/strategy/bottleneck";
 
 const doNotDo = [
-  "Campaign乱発",
-  "Discount依存",
-  "Before / After依存",
-  "架空Review",
-  "大量Treatment追加",
+  "施策の乱発",
+  "割引依存",
+  "ビフォーアフター依存",
+  "架空の口コミ",
+  "大量施術追加",
   "とりあえずLINE",
   "とりあえずTikTok",
   "とりあえずAI",
   "予約数だけを追う",
   "広告を先に増やす",
-  "医学的Treatment診断ツール",
+  "医学的施術診断ツール",
 ];
 
 // Bottleneck Prescription (brief §24) — not a service menu. Each case

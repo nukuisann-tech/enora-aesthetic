@@ -16,41 +16,41 @@ export const channels: Channel[] = [
   {
     id: "search",
     name: "Search",
-    role: "Active Problem Discovery",
+    role: "悩みを検索している段階",
     detail:
-      "「毛穴 美容医療」のような施術名検索だけでなく、「毛穴 何したらいい」「美容医療 初めて」「ダウンタイム 少ない」のような、まだ施術名を知らない検索クエリの例を想定する(Search Console / Keyword Research未実施のQuery Example)。",
-    destination: "Concern / Journal / First Visit",
+      "「毛穴 美容医療」のような施術名検索だけでなく、「毛穴 何したらいい」「美容医療 初めて」「ダウンタイム 少ない」のような、まだ施術名を知らない検索クエリの例を想定する(Search Console / Keyword Research未実施の例)。",
+    destination: "悩み一覧 / コンテンツ / 初めての方へ",
     isHypothesis: true,
   },
   {
     id: "instagram",
     name: "Instagram",
-    role: "Aspiration + Education",
+    role: "憧れの醸成と教育",
     detail:
-      "Texture・空間・Beauty Philosophy・Concern教育・カウンセリングの考え方。予約を直接取ることより、Brand Fitをつくる。",
-    destination: "Website (Philosophy / Concerns)",
+      "質感・空間・美容観・悩みの教育・カウンセリングの考え方。予約を直接取ることより、ブランドとの相性をつくる。",
+    destination: "Website(私たちの考え / 悩み一覧)",
   },
   {
     id: "website",
     name: "Official Website",
-    role: "Decision Environment",
+    role: "判断材料を確認する場所",
     detail:
-      "最重要チャネル。価格・考え方・Risk・People・Treatmentを整理し、SNSではできない深い判断を支援する。",
+      "最重要チャネル。価格・考え方・リスク・スタッフ紹介・施術情報を整理し、SNSではできない深い判断を支援する。",
     destination: "Selective Beauty Map / Consultation Brief",
   },
   {
     id: "local",
     name: "Local Search / Google Business Profile",
-    role: "High Intent",
+    role: "検討が進んだ段階",
     detail: "実案件では営業時間・所在地・予約導線などの基本情報を正確に整える。",
-    destination: "Consultation Booking",
+    destination: "相談予約",
   },
   {
     id: "referral",
     name: "Referral",
-    role: "Trust Transfer",
+    role: "信頼の引き継ぎ",
     detail:
       "既存患者から次の患者へ。紹介・口コミの医療広告上の扱いは実案件で最新ルールを確認する前提。",
-    destination: "Consultation",
+    destination: "相談",
   },
 ];

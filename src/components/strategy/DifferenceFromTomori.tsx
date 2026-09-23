@@ -1,13 +1,13 @@
 import { Reveal, FadeText } from "@/components/Reveal";
 
 const rows = [
-  { axis: "Problem", tomori: "長い検討期間で接点が切れる。", enora: "情報が多すぎて判断できない。" },
-  { axis: "Strategy", tomori: "検討期間を設計する。", enora: "判断品質を設計する。" },
-  { axis: "Growth Asset", tomori: "10 Years Later Home Plan", enora: "Selective Beauty Map" },
+  { axis: "課題", tomori: "長い検討期間で接点が切れる。", enora: "情報が多すぎて判断できない。" },
+  { axis: "戦略", tomori: "検討期間を設計する。", enora: "判断品質を設計する。" },
+  { axis: "成長資産", tomori: "10 Years Later Home Plan", enora: "Selective Beauty Map" },
   {
-    axis: "Growth Loop",
-    tomori: "Product → Content → Next Customer",
-    enora: "Decision → Experience → Trust → Next Relationship",
+    axis: "成長循環",
+    tomori: "商品 → コンテンツ → 次の顧客",
+    enora: "判断 → 体験 → 信頼 → 次の相談",
   },
 ];
 
@@ -23,14 +23,14 @@ export function DifferenceFromTomori() {
       </FadeText>
       <Reveal delay={0.06}>
         <p className="font-body-jp mt-4 max-w-lg text-[13.5px] leading-loose text-ink/65">
-          同じ制作者が、業界ごとに顧客心理からGrowth Modelそのものを設計し直していることが、比較すると分かる。
+          同じ制作者が、業界ごとに顧客心理から成長モデルそのものを設計し直していることが、比較すると分かる。
         </p>
       </Reveal>
 
       <div className="mt-10 md:table md:w-full md:border-collapse">
         <div className="hidden border-b border-line-strong text-left md:table-row">
-          <div className="font-ui-en py-3 pr-4 text-[10px] tracking-[0.1em] text-ink/45 md:table-cell">
-            AXIS
+          <div className="py-3 pr-4 text-[10.5px] tracking-[0.04em] text-ink/45 md:table-cell">
+            項目
           </div>
           <div className="font-ui-en py-3 pr-4 text-[10px] tracking-[0.1em] text-ink/45 md:table-cell">
             TOMORI KOMUTEN

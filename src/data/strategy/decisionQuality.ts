@@ -8,15 +8,15 @@ export type SignalGroup = {
 
 export const decisionQualitySignals: SignalGroup[] = [
   {
-    group: "BEFORE CONSULTATION",
+    group: "相談前",
     signals: [
       "Consultation Brief / Beauty Mapの完了有無",
-      "Price・Risk情報の閲覧有無",
+      "価格・リスク情報の閲覧有無",
       "事前質問の記入有無",
     ],
   },
   {
-    group: "DURING CONSULTATION",
+    group: "相談中",
     signals: [
       "基本情報の説明に費やす時間(短いほど準備ができている可能性)",
       "本人発の質問の数",
@@ -24,15 +24,15 @@ export const decisionQualitySignals: SignalGroup[] = [
     ],
   },
   {
-    group: "AFTER CONSULTATION",
+    group: "相談後",
     signals: [
-      "Decisionの種類(Proceed / Consider / Not Now / No Treatment)",
-      "Considerに対するFollow-up反応率",
+      "判断の種類(進める / 考える / 今はやらない / 施術しない)",
+      "「考える」に対するフォローアップ反応率",
       "再相談時に前回の内容を覚えているか",
     ],
   },
   {
-    group: "OPERATIONS",
+    group: "運営",
     signals: [
       "相談時間のばらつき(準備状況の代理指標)",
       "スタッフの相談前準備時間",
@@ -42,4 +42,4 @@ export const decisionQualitySignals: SignalGroup[] = [
 ];
 
 export const decisionQualityDisclaimer =
-  "これらはNo Treatmentを失敗として扱わないための観察軸であり、単一のDecision Quality Scoreを算出する指標ではない。定量化できるものと、定性的に確認するものが混在する。";
+  "これらは「施術しない」を失敗として扱わないための観察軸であり、単一の判断品質スコアを算出する指標ではない。定量化できるものと、定性的に確認するものが混在する。";
